@@ -6,11 +6,8 @@
 # abstract: create test class from template
 #
 #TODO allow user to select the path from which templates and configs should be read
-#TODO read directories from config file
-#TODO support these languages: JavaScript, Ruby, Perl
-#TODO allow it to either gen files or to return the string (helpful in vim)
-#TODO do we really need a config file?
-#TODO checking that templates exist
+#TODO support these languages: JavaScript, Ruby
+#TODO LBYL that templates exist
 #
 import os
 import string
@@ -38,10 +35,10 @@ class Codebuilder(object):
     def __init__(self, classname, abstract, lang):
         #populate the template vars
         now = strftime("%Y-%m-%d %H:%M:%S")
-        self.data = { 'classname': classname, 
+        self.data = { 'classname': classname,
                  'abstract': abstract,
                  'now'    : now,
-                 'lc_class' : classname.lower() 
+                 'lc_class' : classname.lower()
                  }
         self.language = lang
         self.templates = {}
@@ -85,7 +82,7 @@ if __name__ == '__main__':
     type      = sys.argv[3]
     language  = sys.argv[4]
     try:
-        mode = sys.argv[5]      # file mode makes a file; stream mode echoes 
+        mode = sys.argv[5]      # file mode makes a file; stream mode echoes
     except IndexError:
         mode = 'stream'         #as of now, optional
 
@@ -98,7 +95,7 @@ if __name__ == '__main__':
     log.debug("the path is %s and when we split it's %s" % (sys.path[0], os.path.split(sys.path[0])))
 
     #read the config vars
-    inifile = os.path.join(os.path.abspath(sys.path[0]), 'template.cfg') 
+    inifile = os.path.join(os.path.abspath(sys.path[0]), 'template.cfg')
     cfg.read(inifile)
     basedir = cfg.get('basic','basedir')
     templates = cfg.get('basic', 'templates')
