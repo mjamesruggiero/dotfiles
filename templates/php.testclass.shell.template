@@ -1,0 +1,11 @@
+<?php 
+/**
+ * $classname
+ * $now
+ * $abstract
+ * @author Michael Ruggiero <mruggiero@adbrite.com>
+ **/
+class ${classname}Test extends PHPUnit_Framework_TestCase
+{
+$methods
+}

@@ -1,0 +1,15 @@
+    /**
+     * Test $method_name
+     *
+     * @return void
+     * @author Michael Ruggiero<mruggiero@adbrite.com>
+     **/
+    public function test${method_name}()
+    {
+        ${test_parameter_declaration}
+        $expected = <<<EXPECTED_QUERY
+${expected_query}
+EXPECTED_QUERY;
+        $query = ${classname}::${method_name}(${parameter_string});
+        $this->assertEquals($expected, $query, 'expected query not returned');
+    }

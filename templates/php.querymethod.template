@@ -1,0 +1,13 @@
+   /**
+    * Query generation method
+    * for $related_method.
+    * @return string
+    * @author Michael Ruggiero<mruggiero@adbrite.com>
+    **/
+   public static function $method_name($method_parameters)
+   {
+        $query = <<<QUERYSTRING
+$prefab_query
+QUERYSTRING;
+        return sprintf($query, $args);
+   }

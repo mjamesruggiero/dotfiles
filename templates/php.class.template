@@ -1,0 +1,41 @@
+<?php
+/**
+ * $classname
+ * $now
+ * $abstract
+ * @author Michael Ruggiero <mruggiero@adbrite.com>
+ */
+class $classname {
+
+    protected $name;
+    protected $state;
+    protected $output;
+
+    /**
+    * Constructor for class
+    *
+    *
+    **/
+    public function __construct($name=false, $state=false, $output=false) {
+        if ($name === false || $state === false || $output === false) {
+            throw new Exception('failed to initialize');
+        }
+
+        $this->name   =  $name;
+        $this->state  = $state;
+        $this->output = $output;
+
+        return($this);
+    }
+
+   /**
+    * Simple debug
+    *
+    * @return void
+    * @author Michael Ruggiero<mruggiero@adbrite.com>
+    **/
+   protected function debugger($method, $line, $message)
+   {
+        error_log($method . ' line ' . $line . ' ' . $message);
+   }
+}

@@ -18,7 +18,7 @@ import logging
 from ConfigParser import ConfigParser
 
 SUPPORTED_LANGUAGES = ('python', 'html', 'php', 'java', 'ruby')
-NOT_SUPPORTED_WARNING = "!! Sorry, file write is not yet supported for %s. Check later !!"
+NOT_SUPPORTED_WARNING = "!! Sorry, file write is not yet supported for {0}. Check later !!"
 
 logging.basicConfig(
     #filename ="/tmp/python.log",
@@ -49,26 +49,28 @@ class Codebuilder(object):
 
     def set_template_names(self):
         """Build the set of template paths """
-        self.templates['test'] = "%s/%s.test.template" % (self.template_dir, self.language)
-        self.templates['class'] = "%s/%s.class.template" % (self.template_dir, self.language)
-        log.debug("class template path is %s" % self.templates['class'])
+        self.templates['test'] = "{0}/{1}.test.template".format(self.template_dir, self.language)
+        self.templates['class'] = "{0}/{1}.class.template".format(self.template_dir, self.language)
+        log.debug("class template path is {0}".format(self.templates['class']))
 
     def set_template_type(self, type):
         self.type = type
 
     def get_code(self):
         """Echo the code"""
+        template = None
         try:
             template_file = open(self.templates[self.type], 'r')
             template_str = template_file.read()
             template = string.Template(template_str)
         except IOError:
-            print "cannot read file %s into string" % template
-
+            print "cannot read file {0} into string".format(self.templates[self.type])
         try:
             sys.stdout.write(template.safe_substitute(self.data))
         except KeyError:
-            print "Key error, keys are %s" % ', '.join(self.data.keys())
+            print "Key error, keys are {0}".format(', '.join(self.data.keys()))
+        except AttributeError:
+            print "Could not build template from file {0}".format(self.templates[self.type])
 
 if __name__ == '__main__':
 
@@ -81,6 +83,7 @@ if __name__ == '__main__':
     abstract  = sys.argv[2]
     type      = sys.argv[3]
     language  = sys.argv[4]
+
     try:
         mode = sys.argv[5]      # file mode makes a file; stream mode echoes
     except IndexError:
@@ -90,11 +93,8 @@ if __name__ == '__main__':
         sys.stderr.write("Sorry, language '%s' is not supported\n" % language);
         raise SystemExit(1)
 
-    #read basic config
-    cfg = ConfigParser({})
-    log.debug("the path is %s and when we split it's %s" % (sys.path[0], os.path.split(sys.path[0])))
-
     #read the config vars
+    cfg = ConfigParser({})
     inifile = os.path.join(os.path.abspath(sys.path[0]), 'template.cfg')
     cfg.read(inifile)
     basedir = cfg.get('basic','basedir')
@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     one_level_up = os.path.split(sys.path[0])[0]
     templates = os.path.join(one_level_up, templates)
-    log.debug("templates path is %s" % templates)
+    log.debug("templates path is {0}".format(templates))
 
     builder = Codebuilder(classname, abstract, language)
     builder.set_template_path(templates)
@@ -111,4 +111,4 @@ if __name__ == '__main__':
     if mode == 'stream':
         builder.get_code()
     else:
-        print "%s" % NOT_SUPPORTED_WARNING % str(mode)
+        print NOT_SUPPORTED_WARNING.format(str(mode))

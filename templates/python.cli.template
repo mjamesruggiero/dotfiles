@@ -1,0 +1,59 @@
+#!/usr/bin/python
+#
+#mjamesruggiero
+#$now
+#adapted from http://bit.ly/jx47Ve
+
+import sys
+import optparse
+from ConfigParser import ConfigParser
+
+def process_command_line(argv):
+    """
+    Return a 2-tuple: (settings object, args list).
+    `argv` is a list of arguments, or `None` for ``sys.argv[1:]``.
+    """
+    if argv is None:
+        argv = sys.argv[1:]
+
+    # initialize the parser object:
+    parser = optparse.OptionParser(
+        formatter=optparse.TitledHelpFormatter(width=78),
+        add_help_option=None)
+
+    # define options here:
+    parser.add_option(      # customized description; put --help last
+        '-h', '--help', action='help',
+        help='Show this help message and exit.')
+
+    settings, args = parser.parse_args(argv)
+
+    # check number of arguments, verify values, etc.:
+    if args:
+        parser.error('program takes no command-line arguments; '
+                     '"%s" ignored.' % (args,))
+
+    # further process settings & args if necessary
+
+    return settings, args
+
+def main(argv=None):
+    settings, args = process_command_line(argv)
+    # application code here, like:
+    # run(settings, args)
+    return 0        # success
+
+if __name__ == '__main__':
+
+    cfg = ConfigParser({})
+    config_file = os.path.join(os.path.abspath(sys.path[0]), 'cli_app.cfg')
+    cfg.read(config_file)
+
+    #database and dirs
+    #USERNAME = cfg.get('database', 'username') 
+    #PASSWORD = cfg.get('database', 'password')
+    #HOST = cfg.get('database', 'host')
+    #TESTFILE_DIR = cfg.get('dirs', 'testfile_dir')
+
+    status = main()
+    sys.exit(status)

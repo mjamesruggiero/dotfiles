@@ -1,0 +1,53 @@
+<?php 
+/**
+ * $classname
+ * $now
+ * $abstract
+ * @author Michael Ruggiero <mruggiero@adbrite.com>
+ **/
+class ${classname}Test extends PHPUnit_Framework_TestCase
+{
+    /**
+     * Setup
+     * 
+     * @author Michael Ruggiero <mruggiero@adbrite.com>
+     **/
+    protected function setUp()
+    {
+        try {
+            //setup code
+        }
+        catch(Exception $e) {
+            echo "ERROR:\n";
+            echo $e->getMessage() .  "\n".  $e->getTraceAsString();
+        }
+    }
+
+    /**
+     * Teardown
+     *
+     * 
+     * @author Michael Ruggiero<mruggiero@adbrite.com>
+     **/
+    protected function tearDown()
+    {
+        try {
+            //teardown
+        }
+        catch(Exception $e) {
+            echo "ERROR:\n";
+            echo $e->getMessage() .  "\n".  $e->getTraceAsString();
+        }
+    }
+
+    /**
+    * undocumented function
+    *
+    * 
+    * @author Michael Ruggiero<mruggiero@adbrite.com>
+    **/
+    public function test${lc_class}()
+    {
+        $this->assertSame($expected, $result, 'result was not "' . $expected . '" as expected');
+    }
+}
