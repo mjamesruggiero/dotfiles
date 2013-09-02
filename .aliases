@@ -1,0 +1,36 @@
+alias ll='ls -lart'
+alias svbf='sudo vi ~/.bash_profile'
+alias sbf='source ~/.bash_profile'
+alias hgri='. hgri'
+alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
+
+# misc
+alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
+alias ctags="ctags -R --exclude=spec/support --exclude=logs/* --exclude=tmp --exclude=vendor/jarhead"
+
+# git
+alias shipit='git push -u origin master'
+alias gs='git status --short'
+alias gst='git status'
+alias gc='git commit'
+alias gl='git log'
+alias gup='git pull && git submodule update --init'
+alias gitlg='git log --pretty=format:"%Cred%h%Creset - %Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+alias ga='git add -A'
+alias gda='git diff head'
+alias gitfiles='git diff-tree --no-commit-id --name-only -r'
+
+# python
+alias nt='nosetests'
+alias workit='workon complexity'
+alias vew='source /usr/local/bin/virtualenvwrapper.sh'
+alias noseit='nosetests -v -s -w tests --with-yanc'
+alias nosecover='nosetests --with-coverage --cover-html -v -s -w tests'
+alias nosefail='nosetests -v -s -w tests --failed --with-yanc'
+alias ackpy='ag -G py$'
+alias pyclean='find . -type f -name "*.pyc" -ls -delete'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# ruby
+alias rake='bundle exec rake'
+removeoldsql='find . -name "*.sql" -mtime +8 | xargs rm'
