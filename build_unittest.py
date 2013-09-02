@@ -1,11 +1,11 @@
 #!/usr/bin/python
 #
-# build_unittest.py
+# echoes test class or unit test class from template;
+# very helpful in vim
 #
-# abstract: create test class or unit test class from template
-#
-# TODO support these languages: JavaScript, Ruby
-#
+# TODO support JavaScript
+# TODO support commandline scripts (Python, Ruby, bash)
+
 import os
 import string
 import sys
@@ -14,6 +14,7 @@ import logging
 from ConfigParser import ConfigParser
 
 SUPPORTED_LANGUAGES = ('python', 'html', 'php', 'java', 'ruby')
+
 
 logging.basicConfig(
     format="%(levelname)-10s %(asctime)s %(filename)s %(lineno)d %(message)s",
@@ -30,7 +31,10 @@ def get_template_path():
 
 
 class Codebuilder(object):
-    """Class building class and test from template files."""
+    """
+    Codebuilder echoes class and test code,
+    compiled from templates.
+    """
 
     def __init__(self, classname, abstract, lang):
         """Populate template vars"""
