@@ -7,12 +7,7 @@ class $classname(object):
   $abstract
   """
   def __init__(self):
-    pass
-
-  #def _init(self):
-  #  """initialize config and logging"""
-  #  self._utils = Utils()
-  #  self._utils.get_config()
-  #  self._application_path = self._utils.config.get('basic', 'APPLICATION_PATH')
-  #  self.logger = self._utils.get_logger(utils.config.get('basic', 'APPLICATION_NAME'))
-
+      self._utils = Utils()
+      self._utils.get_config()
+      self._application_path = self._utils.config.get('basic', 'APPLICATION_PATH')
+      self.logger = self._utils.get_logger(utils.config.get('basic', 'APPLICATION_NAME'))

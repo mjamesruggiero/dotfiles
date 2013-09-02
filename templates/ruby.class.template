@@ -1,23 +1,5 @@
-#!/usr/bin/ruby
-
-#
-# $classname
-# $now
-# $abstract
-# Michael Ruggiero <mruggiero@adbrite.com>
-#
-
 class $classname
-        
-    def initialize(args)
-        
-    end
-
-end
-
-# main
-if __FILE__ == $0
-  ARGF.each_line do |e|
-    puts "arg: #{e}"
+  def initialize(args={})
+    options = opts
   end
 end

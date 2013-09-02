@@ -17,15 +17,5 @@ class Test$classname(unittest.TestCase):
     -- Groucho Marx 
     """
 
-  #def _init():
-  #  utils = Utils()
-  #  utils.get_config()
-
-  #  self._application_path = utils.config.get('basic', 'APPLICATION_PATH')
-  #  self._logger = utils.get_logger(utils.config.get('basic', 'APPLICATION_NAME'))
-
-  #  self.test_file = os.path.join(application_path, utils.config.get('test', 'TEST_CSV'))
-  #  self.parser = Parser(self.test_file)
-    
 if __name__ == '__main__':
     unittest.main()
