@@ -7,6 +7,8 @@ alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 # misc
 alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
 alias ctags="ctags -R --exclude=spec/support --exclude=logs/* --exclude=tmp --exclude=vendor/jarhead"
+whatsmyip='curl ifconfig.me'
+flushcache='dscacheutil -flushcache'
 
 # git
 alias shipit='git push -u origin master'
