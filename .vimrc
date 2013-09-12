@@ -15,7 +15,7 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd FileType c,cpp,java,ruby,python autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,ruby,python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " insert space characters whenever the tab key is pressed
 set expandtab
@@ -82,6 +82,9 @@ map <leader>d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>
 "Python/Perl/shell commenting
 map <leader># :s/^/#/<CR>
 
+"turn string into a Javascript string (and back again)
+vmap <silent> ;h :s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>
+vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$? \1 + '\2'?<CR>
 "----------------------- working with VIMRC -------------------------
 "source the vimrc after saving it
 if has("autocmd")
@@ -101,8 +104,6 @@ map ;z :set paste!<CR>
 
 "save the buffer with two strokes
 inoremap ;w <esc>:w<CR>
-                                                                                                  
-map ;d :bd<CR>
 "------------------------- dumb macros ---------------------
 function! MakeJournalLine()
     r !date
