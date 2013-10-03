@@ -21,6 +21,7 @@ alias gitlg='git log --pretty=format:"%Cred%h%Creset - %Creset %s %Cgreen(%cr) %
 alias ga='git add -A'
 alias gda='git diff head'
 alias gitfiles='git diff-tree --no-commit-id --name-only -r'
+alias gdh='git diff head'
 
 # python
 alias nt='nosetests'
@@ -36,3 +37,4 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # ruby
 alias rake='bundle exec rake'
 removeoldsql='find . -name "*.sql" -mtime +8 | xargs rm'
+rkdbm='bundle exec rake db:migrate db:test:prepare'
