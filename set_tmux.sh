@@ -17,13 +17,13 @@ git_window() {
 }
 
 scala() {
-    dir="${BASE_DIR}/workspace/humphrey"
+    dir="${BASE_DIR}/workspace/dorota"
     build_session "scala"
 
     # repl
     #tmux rename-window -t 0 -n repl
     tmux send-keys "cd $dir" C-m
-    tmux send-keys "sbt" C-m
+    tmux send-keys "./sbt" C-m
 
     # vim
     vim_window $dir
@@ -89,4 +89,4 @@ rufus
 scratch
 
 #and attach me
-tmux attach-session -t rufus
+tmux attach-session -t scala
