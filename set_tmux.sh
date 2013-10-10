@@ -1,4 +1,4 @@
-BASE_DIR='/Users/mjamesruggiero'
+BASE_DIR='/Users/michaelruggiero'
 build_session() {
     SESSION_NAME=$1
     tmux new-session -d -s $SESSION_NAME
@@ -17,7 +17,7 @@ git_window() {
 }
 
 scala() {
-    dir="${BASE_DIR}/workspace/dorota"
+    dir="${BASE_DIR}/code/mr/dorota"
     build_session "scala"
 
     # repl
@@ -38,7 +38,7 @@ scratch() {
 }
 
 rufus() {
-    dir="${BASE_DIR}/workspace/rufus"
+    dir="${BASE_DIR}/code/mr/rufus"
     build_session "rufus"
 
     # repl
@@ -54,7 +54,7 @@ rufus() {
 }
 
 sharethrough() {
-    dir="${BASE_DIR}/workspace/bakery"
+    dir="${BASE_DIR}/code/workspace/bakery"
     build_session sharethrough
 
     # repl
