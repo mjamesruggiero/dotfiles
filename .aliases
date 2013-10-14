@@ -12,6 +12,8 @@ flushcache='dscacheutil -flushcache'
 
 # git
 alias shipit='git push -u origin master'
+alias gpthis='git push -u origin HEAD:$(git_current_branch)'
+alias git_current_branch='git rev-parse --abbrev-ref HEAD'
 alias gs='git status --short'
 alias gst='git status'
 alias gc='git commit'
