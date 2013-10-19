@@ -153,7 +153,6 @@ let g:PyFlakeOnWrite = 1
 :map ;x :0r! /usr/local/bin/makemepythontest
 :map ;l :r ~/Dropbox/python/scratch/logging_bp.txt<CR>
 :map ;8 :r ~/Dropbox/python/scratch/debug_logging_bp.txt<CR>
-:map ;9 :r ~/Dropbox/python/scratch/debug_logging_bp.txt<CR>
 vnoremap ;9 :!/usr/local/bin/sql_formatter<cr>  " only work in 'visual' mode
 "
 "--------------------------- and the status line!
