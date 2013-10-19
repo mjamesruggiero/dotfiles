@@ -6,8 +6,8 @@ alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 
 # misc
 alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
-alias ctags="ctags -R --exclude=spec/support --exclude=logs/* --exclude=tmp --exclude=vendor/jarhead"
-whatsmyip='curl ifconfig.me'
+alias ctags="/usr/local/bin/ctags -R --exclude=spec/support --exclude=logs/* --exclude=tmp --exclude=vendor/jarhead"
+alias whatsmyip='curl -s checkip.dyndns.org|sed -e "s/.*Current IP Address: //" -e "s/<.*$//"'
 flushcache='dscacheutil -flushcache'
 
 # git
