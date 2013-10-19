@@ -38,5 +38,6 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 # ruby
 alias rake='bundle exec rake'
-removeoldsql='find . -name "*.sql" -mtime +8 | xargs rm'
-rkdbm='bundle exec rake db:migrate db:test:prepare'
+alias removeoldsql='find . -name "*.sql" -mtime +8 | xargs rm'
+alias rkdbm='bundle exec rake db:migrate db:test:prepare'
+alias zr='zeus rspec -fp'

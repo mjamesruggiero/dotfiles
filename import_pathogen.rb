@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 git_bundles = %w{
-  git://github.com/godlygeek/tabular.git
   git://github.com/scrooloose/nerdtree.git
   git://github.com/tpope/vim-fugitive.git
   git://github.com/tpope/vim-haml.git
@@ -10,7 +9,6 @@ git_bundles = %w{
   git://github.com/tpope/vim-surround.git
   git://github.com/tsaleh/vim-matchit.git
   git://github.com/msanders/snipmate.vim.git
-  git://github.com/altercation/vim-colors-solarized.git
   git://github.com/nvie/vim-flake8.git
   git://github.com/alfredodeza/pytest.vim.git
   git://git.wincent.com/command-t.git
@@ -22,6 +20,7 @@ git_bundles = %w{
   git://github.com/scrooloose/nerdcommenter.git
   git://github.com/kchmck/vim-coffee-script.git
   git://github.com/tpope/vim-fireplace.git
+  git://github.com/thoughtbot/vim-rspec.git
 }
 
 require 'fileutils'

@@ -85,6 +85,9 @@ map <leader># :s/^/#/<CR>
 "turn string into a Javascript string (and back again)
 vmap <silent> ;h :s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>
 vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$? \1 + '\2'?<CR>
+
+" format SQL
+vnoremap ;9 :!/usr/local/bin/sql_formatter<cr>  " only work in 'visual' mode
 "----------------------- working with VIMRC -------------------------
 "source the vimrc after saving it
 if has("autocmd")
@@ -147,14 +150,24 @@ map <leader>d :call SearchDash()<CR>
 
 " pep8 and pyflakes
 let g:PyFlakeOnWrite = 1
+
+" vim-rspec
+map <Leader>u :call RunCurrentSpecFile()<CR>
+map <Leader>i :call RunNearestSpec()<CR>
+map <Leader>o :call RunLastSpec()<CR>
+map <Leader>p :call RunAllSpecs()<CR>
+
+" map rspec_command to zeus
+let g:rspec_command = "!zeus rspec -fp {spec}"
 "----------------------- code generation -----------------------
-"python templates
+" templates for generating Python tests
 :map ;f :0r! /usr/local/bin/makemepython 
 :map ;x :0r! /usr/local/bin/makemepythontest
+
+"add Python logging lines
 :map ;l :r ~/Dropbox/python/scratch/logging_bp.txt<CR>
 :map ;8 :r ~/Dropbox/python/scratch/debug_logging_bp.txt<CR>
-vnoremap ;9 :!/usr/local/bin/sql_formatter<cr>  " only work in 'visual' mode
-"
+
 "--------------------------- and the status line!
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 
