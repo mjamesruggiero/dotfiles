@@ -1,0 +1,13 @@
+#!/usr/bin/ruby
+# mjamesruggiero - just want to format queries
+# Fri Oct 18 16:47:57 PDT 2013
+query = $stdin.read
+puts query.
+  gsub(/(,)/, '\1' + "\n").
+  gsub(/(\sINNER JOIN\s)/, "\n" + '\1').
+  gsub(/(\sFROM\s)/, "\n" + '\1').
+  gsub(/(\sWHERE\s)/, "\n" + '\1').
+  gsub(/(\sORDER\s)/, "\n" + '\1').
+  gsub(/(\sLEFT JOIN\s)/, "\n" + '\1').
+  gsub(/(\sLEFT OUTER JOIN\s)/, "\n" + '\1').
+  gsub(/(\sAND\s)/, "\n" + '\1')
