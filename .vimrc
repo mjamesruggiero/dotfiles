@@ -87,7 +87,7 @@ vmap <silent> ;h :s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>
 vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$? \1 + '\2'?<CR>
 
 " format SQL
-vnoremap ;9 :!/usr/local/bin/sql_formatter<cr>  " only work in 'visual' mode
+vnoremap ;7 :!/usr/local/bin/sql_formatter<cr>  " only work in 'visual' mode
 "----------------------- working with VIMRC -------------------------
 "source the vimrc after saving it
 if has("autocmd")

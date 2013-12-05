@@ -5,6 +5,7 @@
 /stylesheets/
 /tmp/
 /vendor/
+/target/
 *.sql
 *.tags*
 *.gemtags*
