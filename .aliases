@@ -3,6 +3,7 @@ alias svbf='sudo vi ~/.bash_profile'
 alias sbf='source ~/.bash_profile'
 alias hgri='. hgri'
 alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
+alias fixyolibs='unset DYLD_LIBRARY_PATH'
 
 # misc
 alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
@@ -11,6 +12,7 @@ alias whatsmyip='curl -s checkip.dyndns.org|sed -e "s/.*Current IP Address: //" 
 alias flushcache='dscacheutil -flushcache'
 alias strcode='cd ~/code/workspace'
 alias mycode='cd ~/code/mr'
+alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
 
 # git
 alias gpthis='git push -u origin HEAD:$(git_current_branch)'
