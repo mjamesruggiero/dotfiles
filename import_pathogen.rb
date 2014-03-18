@@ -11,9 +11,7 @@ git_bundles = %w{
   git://github.com/msanders/snipmate.vim.git
   git://github.com/nvie/vim-flake8.git
   git://github.com/alfredodeza/pytest.vim.git
-  git://git.wincent.com/command-t.git
   git://github.com/derekwyatt/vim-scala.git
-  git://github.com/tpope/vim-foreplay.git
   git://github.com/tpope/vim-classpath.git
   git://github.com/guns/vim-clojure-static.git
   git://github.com/rking/ag.vim
@@ -21,6 +19,9 @@ git_bundles = %w{
   git://github.com/kchmck/vim-coffee-script.git
   git://github.com/tpope/vim-fireplace.git
   git://github.com/thoughtbot/vim-rspec.git
+  git://github.com/walm/jshint.vim.git
+  git://git.wincent.com/command-t.git
+  git://github.com/klen/python-mode.git
 }
 
 require 'fileutils'

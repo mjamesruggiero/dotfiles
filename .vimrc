@@ -159,18 +159,21 @@ map <Leader>p :call RunAllSpecs()<CR>
 
 " map rspec_command to zeus
 let g:rspec_command = "!zeus rspec -fp {spec}"
+
+" pymode settings
+let g:pymode_doc = 0
+let g:pymode_rope_complete_on_dot = 0
 "----------------------- code generation -----------------------
 " templates for generating Python tests
 :map ;f :0r! /usr/local/bin/makemepython 
 :map ;x :0r! /usr/local/bin/makemepythontest
 
 "add Python logging lines
-:map ;l :r ~/Dropbox/python/scratch/logging_bp.txt<CR>
 :map ;8 :r ~/Dropbox/python/scratch/debug_logging_bp.txt<CR>
 :map ;9 :r ~/Dropbox/python/argparse_template.txt<CR>
 
 "--------------------------- and the status line!
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+:set statusline=[BUF=%n]\ [FILE=%f]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 
 " IMPORTANT: Uncomment one of the following lines to force
 " using 256 colors (or 88 colors) if your terminal supports it,
