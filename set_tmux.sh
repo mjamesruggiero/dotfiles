@@ -16,9 +16,9 @@ git_window() {
     tmux send-keys "git status" C-m
 }
 
-scala() {
-    dir="${BASE_DIR}/code/mr/dorota"
-    build_session "scala"
+georgina() {
+    dir="${BASE_DIR}/code/mr/georgina"
+    build_session "georgina"
 
     # repl
     #tmux rename-window -t 0 -n repl
@@ -32,19 +32,14 @@ scala() {
     git_window $dir
 }
 
-scratch() {
-    dir="${BASE_DIR}/Dropbox/notes"
-    build_session "scratch"
-}
-
-rufus() {
-    dir="${BASE_DIR}/code/mr/rufus"
-    build_session "rufus"
+lily() {
+    dir="${BASE_DIR}/code/mr/lily"
+    build_session "lily"
 
     # repl
     #tmux rename-window -t 0 -n repl
     tmux send-keys "cd $dir" C-m
-    tmux send-keys "workon rufus" C-m
+    tmux send-keys "workon ipy" C-m
 
     # vim
     vim_window $dir
@@ -68,14 +63,21 @@ sharethrough() {
     git_window $dir
 }
 
-clojure() {
-    dir="${BASE_DIR}/Dropbox/clojure"
-    build_session "clojure"
+hq() {
+    dir="${BASE_DIR}/code/workspace/Creatorious"
+    build_session "HQ"
 
-    # repl
-    #tmux rename-window -t 0 -n repl
     tmux send-keys "cd $dir" C-m
-    tmux send-keys "clj" C-m
+
+    # vim
+    vim_window $dir
+}
+
+katas() {
+    dir="${BASE_DIR}/code/mr/katas"
+    build_session "katas"
+
+    tmux send-keys "cd $dir" C-m
 
     # vim
     vim_window $dir
@@ -83,10 +85,10 @@ clojure() {
 
 #build them
 sharethrough
-clojure
-scala
-rufus
-scratch
+hq
+georgina
+lily
+katas
 
 #and attach me
-tmux attach-session -t scala
+tmux attach-session -t georgina
