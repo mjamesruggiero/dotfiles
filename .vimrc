@@ -15,7 +15,7 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd FileType c,cpp,java,ruby,python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,ruby,python,javascript,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " insert space characters whenever the tab key is pressed
 set expandtab
@@ -59,6 +59,9 @@ inoremap jk <esc>
 map <F2> :mksession! ~/.vim_session <cr> 
 " And load session with F3
 map <F3> :source ~/.vim_session <cr>     
+
+"commandT should ignore scala target dirs
+let g:CommandTWildIgnore=&wildignore . ",**/project/target/*,**/target/*2.10/*,**/target/streams/*"
 
 " ------------------------- code commenting -------------------------
 "HTML comment
@@ -104,6 +107,18 @@ nnoremap <C-P> :bp<Enter>
 
 "set paste for those Stack Overfow moments
 map ;z :set paste!<CR>
+"set number for cutting and pasting
+map ;q :set number!<CR>
+
+" from http://bit.ly/1f6NvrF
+" semicolon-1 opens buffer *wildmenu*
+" I know, wild, huh?
+set wildcharm=<C-Z>
+nnoremap ;1 :b <C-Z>
+
+" attempting to close buffers
+" while keeping windows
+nmap ;3 :bprevious<CR>:bdelete #<CR>
 
 "save the buffer with two strokes
 inoremap ;w <esc>:w<CR>
