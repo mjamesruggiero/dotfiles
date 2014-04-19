@@ -4,15 +4,19 @@ alias sbf='source ~/.bash_profile'
 alias hgri='. hgri'
 alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 alias fixyolibs='unset DYLD_LIBRARY_PATH'
+alias sma="source ~/.alias"
 
 # misc
 alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
 alias ctags="/usr/local/bin/ctags -R --exclude=spec/support --exclude=logs/* --exclude=tmp --exclude=vendor/jarhead"
 alias whatsmyip='curl -s checkip.dyndns.org|sed -e "s/.*Current IP Address: //" -e "s/<.*$//"'
 alias flushcache='dscacheutil -flushcache'
-alias strcode='cd ~/code/workspace'
-alias mycode='cd ~/code/mr'
+alias ws='cd ~/code/workspace'
+alias g2p="cd ~/Dropbox/python/scratch/ && vim"
+alias dtop='cd ~/Desktop'
+alias mr='cd ~/code/mr'
 alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
+alias unixliner='vim -R ~/Dropbox/unix/unix_oneliners.txt'
 
 # git
 alias gpthis='git push -u origin HEAD:$(git_current_branch)'
@@ -27,6 +31,7 @@ alias gitlg='git log --pretty=format:"%Cred%h%Creset - %Creset %s %Cgreen(%cr) %
 alias ga='git add -A'
 alias gitfiles='git diff-tree --no-commit-id --name-only -r'
 alias gdh='git diff head'
+alias gpr='git pull --rebase'
 
 # python
 alias nt='nosetests'
@@ -44,3 +49,5 @@ alias rake='bundle exec rake'
 alias removeoldsql='find . -name "*.sql" -mtime +8 | xargs rm'
 alias rkdbm='bundle exec rake db:migrate db:test:prepare'
 alias zr='zeus rspec -fp'
+alias rbp='rails_best_practices -e "db" -f html . --output-file ~/Desktop/rails_best_practices_output.html'
+alias gpr='git pull --rebase'
