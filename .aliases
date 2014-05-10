@@ -32,6 +32,8 @@ alias ga='git add -A'
 alias gitfiles='git diff-tree --no-commit-id --name-only -r'
 alias gdh='git diff head'
 alias gpr='git pull --rebase'
+alias gcai='git commit --amend'
+alias gpr='git pull --rebase'
 
 # python
 alias nt='nosetests'
@@ -43,6 +45,7 @@ alias nosefail='nosetests -v -s -w tests --failed --with-yanc'
 alias ackpy='ag -G py$'
 alias pyclean='find . -type f -name "*.pyc" -ls -delete'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias thatpythonserver='python -m SimpleHTTPServer 8083'
 
 # ruby
 alias rake='bundle exec rake'
@@ -50,4 +53,6 @@ alias removeoldsql='find . -name "*.sql" -mtime +8 | xargs rm'
 alias rkdbm='bundle exec rake db:migrate db:test:prepare'
 alias zr='zeus rspec -fp'
 alias rbp='rails_best_practices -e "db" -f html . --output-file ~/Desktop/rails_best_practices_output.html'
-alias gpr='git pull --rebase'
+
+# scala
+alias shipscala='./sbt test && gpthis'
