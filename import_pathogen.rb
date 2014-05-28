@@ -22,6 +22,7 @@ git_bundles = %w{
   git://github.com/walm/jshint.vim.git
   git://git.wincent.com/command-t.git
   git://github.com/klen/python-mode.git
+  git://github.com/airblade/vim-gitgutter.git
 }
 
 require 'fileutils'
