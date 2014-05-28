@@ -12,7 +12,6 @@
 *.csv
 *.tsv
 *.tmp*
-*.js
 *.css
 *.scss
 *.old
