@@ -89,6 +89,9 @@ map <leader># :s/^/#/<CR>
 vmap <silent> ;h :s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>
 vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$? \1 + '\2'?<CR>
 
+"turn
+map <leader>5 :s/<\/[A-Za-z]\+>/&/g<CR>
+
 " format SQL
 vnoremap ;7 :!/usr/local/bin/sql_formatter<cr>  " only work in 'visual' mode
 "----------------------- working with VIMRC -------------------------
@@ -237,9 +240,9 @@ if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
   " Use the guicolorscheme plugin to makes 256-color or 88-color
   " terminal use GUI colors rather than cterm colors.
   runtime! plugin/guicolorscheme.vim
-  GuiColorScheme jellybeans
+  GuiColorScheme mustang
 else
   " For 8-color 16-color terminals or for gvim, just use the
   " regular :colorscheme command.
-  colorscheme jellybeans
+  colorscheme mustang
 endif
