@@ -87,7 +87,7 @@ katas() {
 sharethrough
 hq
 georgina
-lily
+#lily
 katas
 
 #and attach me
