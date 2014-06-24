@@ -12,11 +12,17 @@ alias ctags="/usr/local/bin/ctags -R --exclude=spec/support --exclude=logs/* --e
 alias whatsmyip='curl -s checkip.dyndns.org|sed -e "s/.*Current IP Address: //" -e "s/<.*$//"'
 alias flushcache='dscacheutil -flushcache'
 alias ws='cd ~/code/workspace'
+alias drop='cd ~/Dropbox'
 alias g2p="cd ~/Dropbox/python/scratch/ && vim"
 alias dtop='cd ~/Desktop'
 alias mr='cd ~/code/mr'
+alias hq='cd ~/code/workspace/Creatorious'
+alias bake='cd ~/code/workspace/bakery'
+alias dickens='cd ~/code/mr/dickens'
 alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
 alias unixliner='vim -R ~/Dropbox/unix/unix_oneliners.txt'
+alias notes='vim ~/Dropbox/job/notes.txt'
+alias strnotes='vim ~/Dropbox/job/str/notes/notes.txt'
 
 # git
 alias gpthis='git push -u origin HEAD:$(git_current_branch)'
@@ -36,7 +42,7 @@ alias gcai='git commit --amend'
 alias gpr='git pull --rebase'
 
 # python
-alias nt='nosetests'
+alias nt='nosetests --with-yanc'
 alias workit='workon complexity'
 alias vew='source /usr/local/bin/virtualenvwrapper.sh'
 alias noseit='nosetests -v -s -w tests --with-yanc'
@@ -53,6 +59,7 @@ alias removeoldsql='find . -name "*.sql" -mtime +8 | xargs rm'
 alias rkdbm='bundle exec rake db:migrate db:test:prepare'
 alias zr='zeus rspec -fp'
 alias rbp='rails_best_practices -e "db" -f html . --output-file ~/Desktop/rails_best_practices_output.html'
+alias psql=/Applications/Postgres.app/Contents/MacOS/bin/psql
 
 # scala
 alias shipscala='./sbt test && gpthis'
