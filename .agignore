@@ -17,7 +17,7 @@
 *.old
 *.json
 *.xml
-*.html
+#*.html
 *.plist
 *.pdf
 *.md
