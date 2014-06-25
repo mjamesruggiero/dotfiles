@@ -1,0 +1,15 @@
+snippet readcsv
+	def get_csv_values(filepath):
+		import csv
+		values = []
+		with open(filepath, 'rb') as csvfile:
+			fieldrows = csv.reader(csvfile)
+			for row in fieldrows:
+				values.append(row)
+		return values
+snippet argv
+	try:
+		filepath = sys.argv[1]
+	except Exception, e:
+		print "usage: {0} <filepath>".format(os.path.basename(sys.argv[0]))
+		sys.exit(1)

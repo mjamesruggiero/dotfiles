@@ -1,0 +1,15 @@
+## println debug
+snippet pbug
+	println("----------------------")
+	println(s"[${1}] ${2}")
+	println("----------------------")
+# database result
+snippet result
+	val result = query(q, resultMap, config) map { row =>
+		row.get("count").fold(0)(asInt)
+	}
+# scalatest test
+snippet spec
+	"#${1}" should "${2}" in {
+		${3}
+	}
