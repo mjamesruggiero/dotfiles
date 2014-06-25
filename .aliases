@@ -38,9 +38,9 @@ alias ga='git add -A'
 alias gitfiles='git diff-tree --no-commit-id --name-only -r'
 alias gdh='git diff head'
 alias gpr='git pull --rebase'
-alias gcai='git commit --amend'
+alias forgot='git commit --amend'
 alias gpr='git pull --rebase'
-
+alias oops='git reset --hard HEAD~1'
 # python
 alias nt='nosetests --with-yanc'
 alias workit='workon complexity'
