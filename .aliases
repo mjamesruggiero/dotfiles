@@ -41,8 +41,9 @@ alias gpr='git pull --rebase'
 alias forgot='git commit --amend'
 alias gpr='git pull --rebase'
 alias oops='git reset --hard HEAD~1'
+
 # python
-alias nt='nosetests --with-yanc'
+alias nt='nosetests -v --with-yanc'
 alias workit='workon complexity'
 alias vew='source /usr/local/bin/virtualenvwrapper.sh'
 alias noseit='nosetests -v -s -w tests --with-yanc'
