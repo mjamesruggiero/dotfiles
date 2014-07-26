@@ -16,6 +16,7 @@ augroup myfiletypes
 augroup END
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd FileType c,cpp,java,ruby,python,javascript,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " insert space characters whenever the tab key is pressed
 set expandtab
@@ -179,6 +180,8 @@ map <Leader>p :call RunAllSpecs()<CR>
 " map rspec_command to zeus
 let g:rspec_command = "!zeus rspec -fp {spec}"
 
+" open this file in Mou
+map ;0 :exec ':silent !open %'<CR>
 
 " copied this from dbolson's https://github.com/dbolson/dotvim
 " Find the related spec for any file you open. Requires
@@ -218,6 +221,9 @@ endfunction
 " pymode settings
 let g:pymode_doc = 0
 let g:pymode_rope_complete_on_dot = 0
+
+" jshint
+au BufWritePost *.js :JSHint
 "----------------------- code generation -----------------------
 " templates for generating Python tests
 :map ;f :0r! /usr/local/bin/makemepython 
