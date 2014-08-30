@@ -1,7 +1,7 @@
 alias ll='ls -lart'
 alias svbf='sudo vi ~/.bash_profile'
 alias sbf='source ~/.bash_profile'
-alias hgri='. hgri'
+alias hgri='history | grep -i '
 alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 alias fixyolibs='unset DYLD_LIBRARY_PATH'
 alias sma="source ~/.alias"
