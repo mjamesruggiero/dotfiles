@@ -15,7 +15,7 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd FileType c,cpp,java,ruby,python,javascript,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,ruby,python,javascript,scala,clojure autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " insert space characters whenever the tab key is pressed
@@ -246,9 +246,9 @@ if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
   " Use the guicolorscheme plugin to makes 256-color or 88-color
   " terminal use GUI colors rather than cterm colors.
   runtime! plugin/guicolorscheme.vim
-  GuiColorScheme mustang
+  GuiColorScheme distinguished
 else
   " For 8-color 16-color terminals or for gvim, just use the
   " regular :colorscheme command.
-  colorscheme mustang
+  colorscheme distinguished
 endif
