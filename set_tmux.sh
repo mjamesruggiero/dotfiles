@@ -25,6 +25,15 @@ georgina() {
     git_window $dir
 }
 
+piney() {
+    dir="${BASE_DIR}/code/mr/piney"
+    build_session "piney"
+    tmux send-keys "cd $dir" C-m
+    tmux send-keys "lein repl" C-m
+    vim_window $dir
+    git_window $dir
+}
+
 waldorf() {
     dir="${BASE_DIR}/code/mr/waldorf"
     build_session "waldorf"
@@ -62,6 +71,7 @@ hq
 georgina
 waldorf
 dickens
+piney
 
 #and attach me
 tmux attach-session -t georgina
