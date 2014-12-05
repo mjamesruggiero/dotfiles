@@ -16,6 +16,33 @@ git_window() {
     tmux send-keys "git status" C-m
 }
 
+fpinscala() {
+    dir="${BASE_DIR}/code/mr/fpinscala"
+    build_session "fpinscala"
+    tmux send-keys "cd $dir" C-m
+    tmux send-keys "./sbt" C-m
+    vim_window $dir
+    git_window $dir
+}
+
+taft() {
+    dir="${BASE_DIR}/code/mr/taft"
+    build_session "taft"
+    tmux send-keys "cd $dir" C-m
+    tmux send-keys "./sbt" C-m
+    vim_window $dir
+    git_window $dir
+}
+
+scala() {
+    dir="${BASE_DIR}/code/mr/microwave"
+    build_session "scala"
+    tmux send-keys "cd $dir" C-m
+    tmux send-keys "./sbt" C-m
+    vim_window $dir
+    git_window $dir
+}
+
 georgina() {
     dir="${BASE_DIR}/code/mr/georgina"
     build_session "georgina"
@@ -65,13 +92,21 @@ dickens() {
     vim_window $dir
 }
 
+notes() {
+    dir="${BASE_DIR}/Dropbox/job/str/notes"
+    notes_file="${dir}/notes.txt"
+    build_session "notes"
+    tmux send-keys "cd $dir" C-m
+    vim_window $notes_file
+}
+
 #build them
 bakery
-hq
-georgina
+taft
+fpinscala
 waldorf
 dickens
-piney
+scala
 
 #and attach me
 tmux attach-session -t georgina
