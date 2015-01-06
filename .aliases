@@ -41,6 +41,7 @@ alias gpr='git pull --rebase'
 alias forgot='git commit --amend'
 alias gpr='git pull --rebase'
 alias oops='git reset --hard HEAD~1'
+alias oops-local='git reset --soft HEAD~1'
 
 # python
 alias nt='nosetests -v --with-yanc'
