@@ -23,6 +23,7 @@ alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
 alias unixliner='vim -R ~/Dropbox/unix/unix_oneliners.txt'
 alias notes='vim ~/Dropbox/job/notes.txt'
 alias strnotes='vim ~/Dropbox/job/str/notes/notes.txt'
+alias emacs="/usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs -nw"
 
 # git
 alias gpthis='git push -u origin HEAD:$(git_current_branch)'
