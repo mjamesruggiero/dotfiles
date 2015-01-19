@@ -109,4 +109,4 @@ dickens
 scala
 
 #and attach me
-tmux attach-session -t georgina
+tmux attach-session -t dickens
