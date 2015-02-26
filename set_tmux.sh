@@ -35,7 +35,7 @@ taft() {
 }
 
 scala() {
-    dir="${BASE_DIR}/code/mr/microwave"
+    dir="${BASE_DIR}/code/workspace/microwave"
     build_session "scala"
     tmux send-keys "cd $dir" C-m
     tmux send-keys "./sbt" C-m
@@ -88,8 +88,8 @@ dickens() {
     dir="${BASE_DIR}/code/mr/dickens"
     build_session "dickens"
     tmux send-keys "cd $dir" C-m
-    git_window $dir
     vim_window $dir
+    git_window $dir
 }
 
 notes() {
