@@ -77,13 +77,6 @@ bakery() {
     git_window $dir
 }
 
-hq() {
-    dir="${BASE_DIR}/code/workspace/Creatorious"
-    build_session "HQ"
-    tmux send-keys "cd $dir" C-m
-    vim_window $dir
-}
-
 dickens() {
     dir="${BASE_DIR}/code/mr/dickens"
     build_session "dickens"
@@ -100,13 +93,21 @@ notes() {
     vim_window $notes_file
 }
 
+haskell() {
+    dir="${BASE_DIR}/code/mr/note"
+    build_session "haskell"
+    tmux send-keys "cd $dir" C-m
+    git_window $dir
+    vim_window $dir
+}
+
 #build them
 bakery
 taft
-fpinscala
 waldorf
 dickens
 scala
+haskell
 
 #and attach me
 tmux attach-session -t dickens
