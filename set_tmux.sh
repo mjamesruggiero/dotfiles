@@ -10,6 +10,12 @@ vim_window() {
     tmux send-keys "vim" C-m
 }
 
+ghc_window() {
+    tmux new-window -a -n GHCI
+    tmux send-keys "cd $1" C-m
+    tmux send-keys "ghci" C-m
+}
+
 git_window() {
     tmux new-window -a -n git
     tmux send-keys "cd $1" C-m
@@ -94,11 +100,12 @@ notes() {
 }
 
 haskell() {
-    dir="${BASE_DIR}/code/mr/note"
+    dir="${BASE_DIR}/code/mr/nate"
     build_session "haskell"
     tmux send-keys "cd $dir" C-m
-    git_window $dir
+    tmux send-keys "git status" C-m
     vim_window $dir
+    ghc_window $dir
 }
 
 #build them
