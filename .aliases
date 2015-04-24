@@ -65,4 +65,4 @@ alias rbp='rails_best_practices -e "db" -f html . --output-file ~/Desktop/rails_
 alias psql=/Applications/Postgres.app/Contents/MacOS/bin/psql
 
 # scala
-alias shipscala='./sbt test && gpthis'
+alias shipscala='gpr && ./sbt test && gpthis'
