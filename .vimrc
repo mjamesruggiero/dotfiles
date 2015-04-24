@@ -65,7 +65,7 @@ map <F2> :mksession! ~/.vim_session <cr>
 map <F3> :source ~/.vim_session <cr>     
 
 "commandT should ignore scala target dirs
-let g:CommandTWildIgnore=&wildignore . ",**/project/target/*,**/target/*2.10/*,**/target/streams/*"
+let g:CommandTWildIgnore=&wildignore . ",**/project/target/*,**/target/*2.10/*,**/target/streams/*,**/target/*2.11/*"
 
 " commenting -------------------------
 "HTML comment
