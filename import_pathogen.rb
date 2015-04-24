@@ -22,6 +22,7 @@ git_bundles = %w{
   git://github.com/walm/jshint.vim.git
   git://git.wincent.com/command-t.git
   git://github.com/klen/python-mode.git
+  git://github.com/rizzatti/dash.vim.git
 }
 
 require 'fileutils'
@@ -39,4 +40,3 @@ git_bundles.each do |url|
 end
 
 Dir["*/.git"].each {|f| FileUtils.rm_rf(f) }
-
