@@ -16,6 +16,12 @@ ghc_window() {
     tmux send-keys "ghci" C-m
 }
 
+lein_window() {
+    tmux new-window -a -n leiningen
+    tmux send-keys "cd $1" C-m
+    tmux send-keys "lein repl" C-m
+}
+
 git_window() {
     tmux new-window -a -n git
     tmux send-keys "cd $1" C-m
@@ -31,6 +37,15 @@ fpinscala() {
     git_window $dir
 }
 
+adserver() {
+    dir="${BASE_DIR}/code/workspace/adserver"
+    build_session "adserver"
+    tmux send-keys "cd $dir" C-m
+    #tmux send-keys "./sbt" C-m
+    vim_window $dir
+    git_window $dir
+}
+
 taft() {
     dir="${BASE_DIR}/code/mr/taft"
     build_session "taft"
@@ -40,11 +55,11 @@ taft() {
     git_window $dir
 }
 
-scala() {
-    dir="${BASE_DIR}/code/workspace/microwave"
+vaca() {
+    dir="${BASE_DIR}/code/workspace/vaca"
     build_session "scala"
     tmux send-keys "cd $dir" C-m
-    tmux send-keys "./sbt" C-m
+    #tmux send-keys "./sbt" C-m
     vim_window $dir
     git_window $dir
 }
@@ -108,13 +123,23 @@ haskell() {
     ghc_window $dir
 }
 
-#build them
+piney() {
+    dir="${BASE_DIR}/code/mr/piney"
+    build_session "piney"
+    tmux send-keys "cd $dir" C-m
+    tmux send-keys "git status" C-m
+    vim_window $dir
+    lein_window $dir
+}
+
+# build them
 bakery
 taft
 waldorf
 dickens
-scala
-haskell
+vaca
+adserver
+piney
 
-#and attach me
+# and attach me
 tmux attach-session -t dickens
