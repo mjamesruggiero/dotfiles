@@ -2,9 +2,11 @@ alias ll='ls -lart'
 alias svbf='sudo vi ~/.bash_profile'
 alias sbf='source ~/.bash_profile'
 alias hgri='history | grep -i '
-alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 alias fixyolibs='unset DYLD_LIBRARY_PATH'
-alias sma="source ~/.alias"
+alias sma="source ~/.aliases"
+
+# this tree is just directories
+alias treedir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
 
 # misc
 alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
