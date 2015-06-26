@@ -1,4 +1,4 @@
-BASE_DIR='/Users/michaelruggiero'
+BASE_DIR=$HOME
 build_session() {
     SESSION_NAME=$1
     tmux new-session -d -s $SESSION_NAME
