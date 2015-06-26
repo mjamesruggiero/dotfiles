@@ -10,12 +10,6 @@ vim_window() {
     tmux send-keys "vim" C-m
 }
 
-ghc_window() {
-    tmux new-window -a -n GHCI
-    tmux send-keys "cd $1" C-m
-    tmux send-keys "ghci" C-m
-}
-
 lein_window() {
     tmux new-window -a -n leiningen
     tmux send-keys "cd $1" C-m
@@ -26,15 +20,6 @@ git_window() {
     tmux new-window -a -n git
     tmux send-keys "cd $1" C-m
     tmux send-keys "git status" C-m
-}
-
-fpinscala() {
-    dir="${BASE_DIR}/code/mr/fpinscala"
-    build_session "fpinscala"
-    tmux send-keys "cd $dir" C-m
-    tmux send-keys "./sbt" C-m
-    vim_window $dir
-    git_window $dir
 }
 
 adserver() {
@@ -50,25 +35,16 @@ taft() {
     dir="${BASE_DIR}/code/mr/taft"
     build_session "taft"
     tmux send-keys "cd $dir" C-m
-    tmux send-keys "./sbt" C-m
+    #tmux send-keys "./sbt" C-m
     vim_window $dir
     git_window $dir
 }
 
 vaca() {
     dir="${BASE_DIR}/code/workspace/vaca"
-    build_session "scala"
+    build_session "vaca"
     tmux send-keys "cd $dir" C-m
     #tmux send-keys "./sbt" C-m
-    vim_window $dir
-    git_window $dir
-}
-
-georgina() {
-    dir="${BASE_DIR}/code/mr/georgina"
-    build_session "georgina"
-    tmux send-keys "cd $dir" C-m
-    tmux send-keys "./sbt" C-m
     vim_window $dir
     git_window $dir
 }
@@ -112,15 +88,6 @@ notes() {
     build_session "notes"
     tmux send-keys "cd $dir" C-m
     vim_window $notes_file
-}
-
-haskell() {
-    dir="${BASE_DIR}/code/mr/nate"
-    build_session "haskell"
-    tmux send-keys "cd $dir" C-m
-    tmux send-keys "git status" C-m
-    vim_window $dir
-    ghc_window $dir
 }
 
 piney() {
