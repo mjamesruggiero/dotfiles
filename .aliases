@@ -69,3 +69,8 @@ alias psql=/Applications/Postgres.app/Contents/MacOS/bin/psql
 
 # scala
 alias shipscala='gpr && ./sbt test && gpthis'
+
+# docker
+alias dki='docker run -t -i -P'
+alias dkd='docker run -d -P'
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
