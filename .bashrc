@@ -1,3 +1,6 @@
+export VIRTUALENVWRAPPER_PYTHON=`which python`
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
