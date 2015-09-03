@@ -233,6 +233,20 @@ let g:pymode_rope_complete_on_dot = 0
 
 " jshint
 au BufWritePost *.js :JSHint
+
+
+" pulled from http://bit.ly/1hA6d2C
+" populates the arglist with files in the quickfix list
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+function! QuickfixFilenames()
+  " Building a hash ensures we get each buffer only once
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
 "----------------------- code generation -----------------------
 " templates for generating Python tests
 :map ;f :0r! /usr/local/bin/makemepython 
