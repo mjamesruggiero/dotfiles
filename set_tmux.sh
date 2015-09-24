@@ -31,20 +31,10 @@ adserver() {
     git_window $dir
 }
 
-taft() {
-    dir="${BASE_DIR}/code/mr/taft"
-    build_session "taft"
-    tmux send-keys "cd $dir" C-m
-    #tmux send-keys "./sbt" C-m
-    vim_window $dir
-    git_window $dir
-}
-
 vaca() {
     dir="${BASE_DIR}/code/workspace/vaca"
     build_session "vaca"
     tmux send-keys "cd $dir" C-m
-    #tmux send-keys "./sbt" C-m
     vim_window $dir
     git_window $dir
 }
@@ -82,6 +72,14 @@ dickens() {
     git_window $dir
 }
 
+datascience() {
+    dir="${BASE_DIR}/code/mr/tripp"
+    build_session "datascience"
+    tmux send-keys "cd $dir" C-m
+    vim_window $dir
+    git_window $dir
+}
+
 notes() {
     dir="${BASE_DIR}/Dropbox/job/str/notes"
     notes_file="${dir}/notes.txt"
@@ -101,12 +99,12 @@ piney() {
 
 # build them
 bakery
-taft
 waldorf
 dickens
 vaca
 adserver
 piney
+datascience
 
 # and attach me
 tmux attach-session -t dickens
