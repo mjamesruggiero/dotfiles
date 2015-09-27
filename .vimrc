@@ -149,8 +149,9 @@ let NERDTreeIgnore = ['\.pyc$']
 map <leader>q :g/_debug_start/,/_debug_end/d<CR>
 map - ddjP
 
-" fireplace eval
+" fireplace
 map ;m :Eval<CR>
+map ;e :Last<CR>
 
 "------------------------- experiments ---------------------
 "from LVSTHW: move a line down
