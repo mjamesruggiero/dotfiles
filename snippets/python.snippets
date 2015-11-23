@@ -1,3 +1,8 @@
+snippet argpars
+	DESCRIPTION = '${1}'
+	command_line_args = argparse.ArgumentParser(description=DESCRIPTION)
+	command_line_args.add_argument('${2}', action="store")
+	main(command_line_args.parse_args())
 snippet readcsv
 	def get_csv_values(filepath):
 		import csv
