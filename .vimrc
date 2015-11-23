@@ -1,4 +1,5 @@
 " ------------------------- the basics -------------------------
+
 let mapleader=","
 call pathogen#infect()
 call pathogen#helptags()
@@ -19,10 +20,10 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd FileType c,cpp,java,ruby,python,javascript,scala,clojure,haskell autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-" insert space characters whenever the tab key is pressed
+" space characters whenever tab key is pressed
 set expandtab
 
-" insert 4 spaces characters when tab key is pressed
+" 4 spaces characters when tab key is pressed
 set tabstop=4
 
 " insert 4 spaces wen autoindent indents
@@ -37,8 +38,6 @@ set ignorecase smartcase
 set ruler
 set incsearch
 set hidden
-"nnoremap <C-N> :tabnext<Enter>
-"nnoremap <C-P> :tabprev<Enter>
 set confirm
 set nowrap
 
@@ -60,7 +59,7 @@ inoremap jk <esc>
 
 " save everything that is open into a re-openable session
 map <F2> :mksession! ~/.vim_session <cr> 
-"
+
 " And load session with F3
 map <F3> :source ~/.vim_session <cr>     
 
@@ -193,6 +192,9 @@ let g:rspec_command = "!zeus rspec -fp {spec}"
 " open this file in Mou
 map ;0 :exec ':silent !open %'<CR>
 
+" execute this python file
+nnoremap <silent> <F5> :!clear;python %<CR>
+
 " copied this from dbolson's https://github.com/dbolson/dotvim
 " Find the related spec for any file you open. Requires
 "  * Your specs live in spec/ or fast_spec/
@@ -248,6 +250,10 @@ function! QuickfixFilenames()
   return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
 
+" highlight the current line
+:hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:nnoremap <Leader>c :set cursorline!<CR>
+
 "----------------------- code generation -----------------------
 " templates for generating Python tests
 :map ;f :0r! /usr/local/bin/makemepython 
@@ -257,7 +263,7 @@ endfunction
 :map ;8 :r ~/Dropbox/python/scratch/debug_logging_bp.txt<CR>
 :map ;9 :r ~/Dropbox/python/argparse_template.txt<CR>
 
-"--------------------------- and the status line!
+"--------------------------- the status line -------------------
 :set statusline=[BUF=%n]\ [FILE=%f]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 
 " IMPORTANT: Uncomment one of the following lines to force
@@ -270,9 +276,9 @@ if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
   " Use the guicolorscheme plugin to makes 256-color or 88-color
   " terminal use GUI colors rather than cterm colors.
   runtime! plugin/guicolorscheme.vim
-  GuiColorScheme hybrid
+  GuiColorScheme distinguished
 else
   " For 8-color 16-color terminals or for gvim, just use the
   " regular :colorscheme command.
-  colorscheme hybrid
+  colorscheme distinguished
 endif
