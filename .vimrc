@@ -20,6 +20,11 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd FileType c,cpp,java,ruby,python,javascript,scala,clojure,haskell autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" in makefiles, don't expand tabs to spaces, since actual tab characters are
+" " needed, and have indentation at 8 chars to be sure that all indents are
+" tabs
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
 " space characters whenever tab key is pressed
 set expandtab
 
