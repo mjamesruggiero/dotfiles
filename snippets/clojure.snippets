@@ -25,7 +25,8 @@ snippet defr
 		${0})
 snippet deft
 	(deftest ${1:name}
-		(is (= ${0:assertion})))
+	  (testing "${2:description}"
+	    (is (= ${0:assertion}))))
 snippet is
 	(is (= ${1} ${0}))
 snippet defty
