@@ -39,9 +39,9 @@ vaca() {
     git_window $dir
 }
 
-piney() {
-    dir="${BASE_DIR}/code/mr/piney"
-    build_session "piney"
+swanson() {
+    dir="${BASE_DIR}/code/mr/swanson"
+    build_session "swanson"
     tmux send-keys "cd $dir" C-m
     tmux send-keys "lein repl" C-m
     vim_window $dir
@@ -88,22 +88,13 @@ notes() {
     vim_window $notes_file
 }
 
-piney() {
-    dir="${BASE_DIR}/code/mr/piney"
-    build_session "piney"
-    tmux send-keys "cd $dir" C-m
-    tmux send-keys "git status" C-m
-    vim_window $dir
-    lein_window $dir
-}
-
 # build them
 bakery
 waldorf
 dickens
 vaca
 adserver
-piney
+swanson
 datascience
 
 # and attach me
