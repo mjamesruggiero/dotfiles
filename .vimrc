@@ -124,6 +124,9 @@ map ;z :set paste!<CR>
 "set number for cutting and pasting
 map ;q :set number!<CR>
 
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+
 " from http://bit.ly/1f6NvrF
 " semicolon-1 opens buffer *wildmenu*
 " I know, wild, huh?
