@@ -123,9 +123,7 @@ nnoremap <C-P> :bp<Enter>
 map ;z :set paste!<CR>
 "set number for cutting and pasting
 map ;q :set number!<CR>
-
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+map ;6 :set relativenumber!<CR>
 
 " from http://bit.ly/1f6NvrF
 " semicolon-1 opens buffer *wildmenu*
