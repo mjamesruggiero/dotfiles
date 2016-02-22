@@ -67,7 +67,7 @@ alias rkdbm='bundle exec rake db:migrate db:test:prepare'
 alias zr='zeus rspec -fp'
 alias rbp='rails_best_practices -e "db" -f html . --output-file ~/Desktop/rails_best_practices_output.html'
 alias psql=/Applications/Postgres.app/Contents/MacOS/bin/psql
-alias shiprails='bundle && rake db:migrate && rspec -fp spec/ && gpthis'
+alias shiprails='git pull --rebase && bundle && rake db:migrate db:test:prepare && rspec -fp spec/ && gpthis'
 
 # scala
 alias shipscala='gpr && ./sbt test && gpthis'
