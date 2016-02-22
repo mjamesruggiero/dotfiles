@@ -31,9 +31,9 @@ adserver() {
     git_window $dir
 }
 
-vaca() {
-    dir="${BASE_DIR}/code/workspace/vaca"
-    build_session "vaca"
+fes() {
+    dir="${BASE_DIR}/code/workspace/stx-frontend-services"
+    build_session "FES"
     tmux send-keys "cd $dir" C-m
     vim_window $dir
     git_window $dir
@@ -92,7 +92,7 @@ notes() {
 bakery
 waldorf
 dickens
-vaca
+fes
 adserver
 swanson
 datascience
