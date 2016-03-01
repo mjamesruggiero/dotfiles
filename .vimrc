@@ -71,10 +71,61 @@ map <F3> :source ~/.vim_session <cr>
 "commandT should ignore scala target dirs
 let g:CommandTWildIgnore=&wildignore . ",**/project/target/*,**/target/*2.10/*,**/target/streams/*,**/target/*2.11/*"
 
-" toggle fold
-nnoremap <Space> za
+"source the vimrc after saving it
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+map <leader>ev :vsplit $MYVIMRC<cr>
+set directory^=$HOME/.vim_swap//   "put all swap files together in one place
+set backupdir=~/.vim/backup
 
-" commenting -------------------------
+"------------------------- buffers -------------------------
+"move betwn buffers
+nnoremap <C-N> :bn<Enter>
+nnoremap <C-P> :bp<Enter>
+
+"set paste for those Stack Overfow moments
+map ;z :set paste!<CR>
+
+"set number for cutting and pasting
+map ;q :set number!<CR>
+
+map ;6 :set relativenumber!<CR>
+
+" from http://bit.ly/1f6NvrF
+" semicolon-1 opens buffer *wildmenu*
+" I know, wild, huh?
+set wildcharm=<C-Z>
+nnoremap ;1 :b <C-Z>
+
+" attempting to close buffers
+" while keeping windows
+nmap ;3 :bprevious<CR>:bdelete #<CR>
+
+"save the buffer with two strokes
+inoremap ;w <esc>:w<CR>
+
+map ;g :NERDTreeToggle<CR>
+map ;n :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.pyc$']
+
+" pulled from http://bit.ly/1hA6d2C
+" populates the arglist with files in the quickfix list
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+function! QuickfixFilenames()
+  " Building a hash ensures we get each buffer only once
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
+" highlight the current line
+:hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:nnoremap <Leader>c :set cursorline!<CR>
+
+"------------------------- programming ---------------------
 "HTML comment
 map <leader>< :s/^\(.*\)$/<!-- \1 -->/<CR>
 
@@ -100,76 +151,23 @@ map <leader># :s/^/#/<CR>
 vmap <silent> ;h :s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>
 vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$? \1 + '\2'?<CR>
 
-"turn
-map <leader>5 :s/<\/[A-Za-z]\+>/&/g<CR>
-
 " format SQL
 vnoremap ;7 :!/usr/local/bin/sql_formatter<cr>  " only work in 'visual' mode
-"----------------------- working with VIMRC -------------------------
-"source the vimrc after saving it
-if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-map <leader>ev :vsplit $MYVIMRC<cr>
-set directory^=$HOME/.vim_swap//   "put all swap files together in one place
-set backupdir=~/.vim/backup
-
-"------------------------- buffers -------------------------
-"move betwn buffers
-nnoremap <C-N> :bn<Enter>
-nnoremap <C-P> :bp<Enter>
-
-"set paste for those Stack Overfow moments
-map ;z :set paste!<CR>
-"set number for cutting and pasting
-map ;q :set number!<CR>
-map ;6 :set relativenumber!<CR>
-
-" from http://bit.ly/1f6NvrF
-" semicolon-1 opens buffer *wildmenu*
-" I know, wild, huh?
-set wildcharm=<C-Z>
-nnoremap ;1 :b <C-Z>
-
-" attempting to close buffers
-" while keeping windows
-nmap ;3 :bprevious<CR>:bdelete #<CR>
-
-"save the buffer with two strokes
-inoremap ;w <esc>:w<CR>
-"------------------------- dumb macros ---------------------
-function! MakeJournalLine()
-    r !date
-    -1
-    s/^/--------------/
-    +1
-endfunction
-
-map <leader>j :call MakeJournalLine()<CR>
-map ;g :NERDTreeToggle<CR>
-map ;n :NERDTreeFind<CR>
-let NERDTreeIgnore = ['\.pyc$']
-
-"remove debug logging statements (bracketed by delimiter text)
-map <leader>q :g/_debug_start/,/_debug_end/d<CR>
-map - ddjP
 
 " fireplace
 map ;m :Eval<CR>
 map ;e :Last<CR>
 
-"------------------------- experiments ---------------------
-"from LVSTHW: move a line down
-"and move it up
-map - ddkP
-
-"in insert mode, go back to the beginning 
-"of the word and upper case it
-imap <c-u> <esc>b<c-v>iwU<esc>ea
-
 "Set the shell Vim uses for external commands to bash in such a way that
 "it'll source ~/.bash_profile 
 set shell=/bin/bash\ --login 
+
+" pymode settings
+let g:pymode_doc = 0
+let g:pymode_rope_complete_on_dot = 0
+
+" jshint
+au BufWritePost *.js :JSHint
 
 "try to call dash from inside vim
 " Search Dash for word under cursor
@@ -183,9 +181,13 @@ function! SearchDash()
 endfunction
 map <leader>d :call SearchDash()<CR>
 
-" pep8 and pyflakes
-let g:PyFlakeOnWrite = 1
+" open this file in Mou
+map ;0 :exec ':silent !open %'<CR>
 
+" execute this python file
+nnoremap <silent> <F5> :!clear;python %<CR>
+
+"------------------------- rails ---------------------
 " vim-rspec
 map <Leader>u :call RunCurrentSpecFile()<CR>
 map <Leader>i :call RunNearestSpec()<CR>
@@ -194,12 +196,6 @@ map <Leader>p :call RunAllSpecs()<CR>
 
 " map rspec_command to zeus
 let g:rspec_command = "!zeus rspec -fp {spec}"
-
-" open this file in Mou
-map ;0 :exec ':silent !open %'<CR>
-
-" execute this python file
-nnoremap <silent> <F5> :!clear;python %<CR>
 
 " copied this from dbolson's https://github.com/dbolson/dotvim
 " Find the related spec for any file you open. Requires
@@ -236,31 +232,7 @@ endfunction
 "nnoremap <C-s> :call FindSpec()<CR>
 :map ;4 :call FindSpec()<CR>
 
-" pymode settings
-let g:pymode_doc = 0
-let g:pymode_rope_complete_on_dot = 0
-
-" jshint
-au BufWritePost *.js :JSHint
-
-
-" pulled from http://bit.ly/1hA6d2C
-" populates the arglist with files in the quickfix list
-command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
-function! QuickfixFilenames()
-  " Building a hash ensures we get each buffer only once
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-  endfor
-  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-endfunction
-
-" highlight the current line
-:hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:nnoremap <Leader>c :set cursorline!<CR>
-
-"----------------------- code generation -----------------------
+"----------------------- generation -----------------------
 " templates for generating Python tests
 :map ;f :0r! /usr/local/bin/makemepython 
 :map ;x :0r! /usr/local/bin/makemepythontest
@@ -268,6 +240,15 @@ endfunction
 "add Python logging lines
 :map ;8 :r ~/Dropbox/python/scratch/debug_logging_bp.txt<CR>
 :map ;9 :r ~/Dropbox/python/argparse_template.txt<CR>
+
+function! MakeJournalLine()
+    r !date
+    -1
+    s/^/--------------/
+    +1
+endfunction
+
+map <leader>j :call MakeJournalLine()<CR>
 
 "--------------------------- the status line -------------------
 :set statusline=[BUF=%n]\ [FILE=%f]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
