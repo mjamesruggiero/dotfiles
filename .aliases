@@ -23,6 +23,8 @@ alias bake='cd ~/code/workspace/bakery'
 alias dickens='cd ~/code/mr/dickens'
 alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
 alias unixliner='vim -R ~/Dropbox/unix/unix_oneliners.txt'
+alias tmuxcheat='open ~/Dropbox/tmux-cheatsheet.markdown'
+
 alias notes='vim ~/Dropbox/job/notes.txt'
 alias strnotes='vim ~/Dropbox/job/str/notes/notes.txt'
 alias emacs="/usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs -nw"
