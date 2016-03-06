@@ -31,7 +31,7 @@ set expandtab
 " 4 spaces characters when tab key is pressed
 set tabstop=4
 
-" insert 4 spaces wen autoindent indents
+" insert 4 spaces when autoindent indents
 set shiftwidth=4
 
 " automatically indent files
@@ -107,7 +107,7 @@ inoremap ;w <esc>:w<CR>
 
 map ;g :NERDTreeToggle<CR>
 map ;n :NERDTreeFind<CR>
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '\.class$']
 
 " pulled from http://bit.ly/1hA6d2C
 " populates the arglist with files in the quickfix list
