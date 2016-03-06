@@ -88,6 +88,13 @@ notes() {
     vim_window $notes_file
 }
 
+oca() {
+    dir="${BASE_DIR}/code/mr/oca"
+    build_session "oca"
+    tmux send-keys "cd $dir" C-m
+    vim_window $dir
+}
+
 # build them
 bakery
 waldorf
@@ -96,6 +103,7 @@ fes
 adserver
 swanson
 datascience
+oca
 
 # and attach me
 tmux attach-session -t dickens
