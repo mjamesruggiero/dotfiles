@@ -95,15 +95,33 @@ oca() {
     vim_window $dir
 }
 
+grover() {
+    dir="${BASE_DIR}/code/mr/grover"
+    build_session "grover"
+    tmux send-keys "cd $dir" C-m
+    tmux send-keys "lein repl" C-m
+    vim_window $dir
+    git_window $dir
+}
+
+setup() {
+    dir="${BASE_DIR}/code/workspace/str-setup"
+    build_session "setup"
+    tmux send-keys "cd $dir" C-m
+    vim_window $dir
+    git_window $dir
+}
+
 # build them
-bakery
+#bakery
 waldorf
 dickens
 fes
 adserver
 swanson
-datascience
 oca
+grover
+setup
 
 # and attach me
 tmux attach-session -t dickens
