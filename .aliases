@@ -14,12 +14,10 @@ alias ctags="/usr/local/bin/ctags -R --exclude=spec/support --exclude=logs/* --e
 alias whatsmyip='curl -s checkip.dyndns.org|sed -e "s/.*Current IP Address: //" -e "s/<.*$//"'
 alias flushcache='dscacheutil -flushcache'
 alias ws='cd ~/code/workspace'
+alias sandbox='cd ~/code/sandbox'
 alias drop='cd ~/Dropbox'
-alias g2p="cd ~/Dropbox/python/scratch/ && vim"
 alias dtop='cd ~/Desktop'
 alias mr='cd ~/code/mr'
-alias hq='cd ~/code/workspace/Creatorious'
-alias bake='cd ~/code/workspace/bakery'
 alias dickens='cd ~/code/mr/dickens'
 alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
 alias unixliner='vim -R ~/Dropbox/unix/unix_oneliners.txt'
