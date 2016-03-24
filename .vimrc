@@ -101,6 +101,7 @@ nnoremap ;1 :b <C-Z>
 " attempting to close buffers
 " while keeping windows
 nmap ;3 :bprevious<CR>:bdelete #<CR>
+nmap ;2 :bdelete<CR>
 
 "save the buffer with two strokes
 inoremap ;w <esc>:w<CR>
