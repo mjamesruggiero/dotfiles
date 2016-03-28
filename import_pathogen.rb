@@ -24,6 +24,7 @@ git_bundles = %w{
   git://github.com/tpope/vim-sexp-mappings-for-regular-people.git
   git://github.com/tpope/vim-surround.git
   git://github.com/tsaleh/vim-matchit.git
+  git://github.com/vim-ruby/vim-ruby.git
   git://github.com/walm/jshint.vim.git
   git@github.com:fatih/vim-go.git
 }
