@@ -88,9 +88,9 @@ notes() {
     vim_window $notes_file
 }
 
-oca() {
-    dir="${BASE_DIR}/code/mr/oca"
-    build_session "oca"
+millard() {
+    dir="${BASE_DIR}/code/mr/millard"
+    build_session "millard"
     tmux send-keys "cd $dir" C-m
     vim_window $dir
 }
@@ -104,24 +104,15 @@ grover() {
     git_window $dir
 }
 
-setup() {
-    dir="${BASE_DIR}/code/workspace/str-setup"
-    build_session "setup"
-    tmux send-keys "cd $dir" C-m
-    vim_window $dir
-    git_window $dir
-}
 
 # build them
-#bakery
 waldorf
 dickens
 fes
 adserver
 swanson
-oca
 grover
-setup
+millard
 
-# and attach me
+# attach
 tmux attach-session -t dickens
