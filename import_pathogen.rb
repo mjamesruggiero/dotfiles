@@ -2,11 +2,9 @@
 
 git_bundles = %w{
   git://git.wincent.com/command-t.git
-  git://github.com/alfredodeza/pytest.vim.git
   git://github.com/derekwyatt/vim-scala.git
   git://github.com/guns/vim-clojure-static.git
   git://github.com/guns/vim-sexp.git
-  git://github.com/kchmck/vim-coffee-script.git
   git://github.com/klen/python-mode.git
   git://github.com/msanders/snipmate.vim.git
   git://github.com/nvie/vim-flake8.git
@@ -23,10 +21,9 @@ git_bundles = %w{
   git://github.com/tpope/vim-repeat.git
   git://github.com/tpope/vim-sexp-mappings-for-regular-people.git
   git://github.com/tpope/vim-surround.git
-  git://github.com/tsaleh/vim-matchit.git
   git://github.com/vim-ruby/vim-ruby.git
   git://github.com/walm/jshint.vim.git
-  git@github.com:fatih/vim-go.git
+  git://github.com/fatih/vim-go.git
 }
 
 require 'fileutils'
