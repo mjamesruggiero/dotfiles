@@ -19,6 +19,7 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 "remove EOL whitespace
 autocmd FileType c,cpp,java,ruby,python,javascript,scala,clojure,haskell autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd FileType go set tabstop=4|set shiftwidth=4|set noexpandtab
 
 " in makefiles, don't expand tabs to spaces, since actual tab characters are
 " " needed, and have indentation at 8 chars to be sure that all indents are
@@ -30,6 +31,7 @@ set expandtab
 
 " 4 spaces characters when tab key is pressed
 set tabstop=4
+set softtabstop=4
 
 " insert 4 spaces when autoindent indents
 set shiftwidth=4
