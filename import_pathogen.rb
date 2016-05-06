@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
 
+def compile_command_t
+  vim_home = File.dirname(__FILE__)
+  Dir.chdir("#{vim_home}/bundle/command-t/ruby/command-t")
+  `/usr/bin/ruby extconf.rb`
+  `make`
+end
+
 git_bundles = %w{
   git://git.wincent.com/command-t.git
   git://github.com/derekwyatt/vim-scala.git
@@ -41,3 +48,5 @@ git_bundles.each do |url|
 end
 
 Dir["*/.git"].each {|f| FileUtils.rm_rf(f) }
+
+compile_command_t
