@@ -69,6 +69,8 @@ alias zr='zeus rspec -fp'
 alias rbp='rails_best_practices -e "db" -f html . --output-file ~/Desktop/rails_best_practices_output.html'
 alias psql=/Applications/Postgres.app/Contents/MacOS/bin/psql
 alias shiprails='git pull --rebase && bundle && rake db:migrate db:test:prepare && rspec -fp spec/ && gpthis'
+alias hackdbyaml='patch config/database.yml < ~/Desktop/database.diff'
+alias unhackdbyaml='git checkout config/database.yml'
 
 # scala
 alias shipscala='gpr && ./sbt test && gpthis'
