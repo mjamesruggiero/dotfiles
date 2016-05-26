@@ -168,5 +168,12 @@ before layers configuration."
 layers configuration."
   (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
+(defun timestamp()
+  (interactive)
+  (insert "-------------------------\n")
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
+
+(global-set-key (kbd "C-c t") 'timestamp)
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
