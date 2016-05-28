@@ -24,6 +24,7 @@
      markdown
      common-lisp
      slime
+     clojure
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -159,13 +160,7 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/user-config ()
-  (setq-default evil-escape-key-sequence "jk"))
-
 (defun dotspacemacs/config ()
-  "Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration."
   (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
 (defun timestamp()
@@ -174,6 +169,8 @@ layers configuration."
   (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
 
 (global-set-key (kbd "C-c t") 'timestamp)
+
+(fset 'evil-visual-update-x-selection 'ignore)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
