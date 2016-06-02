@@ -25,6 +25,7 @@
      common-lisp
      slime
      clojure
+     scala
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
