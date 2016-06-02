@@ -172,5 +172,7 @@ before layers configuration."
 
 (fset 'evil-visual-update-x-selection 'ignore)
 
+(setq-default evil-escape-key-sequence "jk")
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
