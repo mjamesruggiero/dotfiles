@@ -26,6 +26,7 @@
      clojure
      scala
      ruby
+     ruby-on-rails
      go
      sql
      yaml
@@ -74,7 +75,8 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(afternoon
+   dotspacemacs-themes '(jbeans
+                         afternoon
                          solarized-dark
                          solarized-light
                          spacemacs-light
@@ -167,8 +169,8 @@ before layers configuration."
 
 (defun dotspacemacs/config ()
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
-  (global-linum-mode) ;; Show line numbers by default
-  )
+  (setq truncate-lines t)
+  (global-linum-mode))
 
 (defun timestamp()
   (interactive)
