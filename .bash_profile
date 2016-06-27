@@ -54,8 +54,8 @@ export PATH=$PATH:$GOPATH/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # virtualenv
-export VIRTUALENVWRAPPER_PYTHON=`which python`
-export WORKON_HOME=$HOME/.virtualenvs
+export PATH=/usr/local/bin:$PATH
+export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="/usr/local/sbin:$PATH"
@@ -64,3 +64,6 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 # tmux
 [ -n "$TMUX" ] && export TERM=screen-256color
+
+# add my ~/bin to PATH
+export PATH="$HOME/bin:$PATH"
