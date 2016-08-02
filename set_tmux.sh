@@ -4,12 +4,6 @@ build_session() {
     tmux new-session -d -s $SESSION_NAME
 }
 
-vim_window() {
-    tmux new-window -a -n vim
-    tmux send-keys "cd $1" C-m
-    tmux send-keys "vim" C-m
-}
-
 lein_window() {
     tmux new-window -a -n leiningen
     tmux send-keys "cd $1" C-m
@@ -27,7 +21,6 @@ adserver() {
     build_session "adserver"
     tmux send-keys "cd $dir" C-m
     #tmux send-keys "./sbt" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -35,7 +28,6 @@ fes() {
     dir="${BASE_DIR}/code/workspace/stx-frontend-services"
     build_session "FES"
     tmux send-keys "cd $dir" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -44,7 +36,6 @@ swanson() {
     build_session "swanson"
     tmux send-keys "cd $dir" C-m
     tmux send-keys "lein repl" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -52,7 +43,6 @@ waldorf() {
     dir="${BASE_DIR}/code/mr/waldorf"
     build_session "waldorf"
     tmux send-keys "cd $dir" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -60,7 +50,6 @@ bakery() {
     dir="${BASE_DIR}/code/workspace/bakery"
     build_session "bakery"
     tmux send-keys "cd $dir" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -68,7 +57,6 @@ dickens() {
     dir="${BASE_DIR}/code/mr/dickens"
     build_session "dickens"
     tmux send-keys "cd $dir" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -76,7 +64,6 @@ datascience() {
     dir="${BASE_DIR}/code/mr/tripp"
     build_session "datascience"
     tmux send-keys "cd $dir" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -85,14 +72,12 @@ notes() {
     notes_file="${dir}/notes.txt"
     build_session "notes"
     tmux send-keys "cd $dir" C-m
-    vim_window $notes_file
 }
 
 millard() {
     dir="${BASE_DIR}/code/mr/millard"
     build_session "millard"
     tmux send-keys "cd $dir" C-m
-    vim_window $dir
 }
 
 grover() {
@@ -100,7 +85,6 @@ grover() {
     build_session "grover"
     tmux send-keys "cd $dir" C-m
     tmux send-keys "lein repl" C-m
-    vim_window $dir
     git_window $dir
 }
 
@@ -112,7 +96,6 @@ fes
 adserver
 swanson
 grover
-millard
 
 # attach
 tmux attach-session -t dickens

@@ -38,6 +38,7 @@
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      syntax-checking
+     spell-checking
      version-control
      (ruby :variables ruby-version-manager 'rvm))
    ;; List of additional packages that will be installed without being
@@ -189,10 +190,14 @@ before layers configuration."
 
 (setq-default evil-escape-key-sequence "jk")
 
-(require 'virtualenvwrapper)
-(venv-initialize-interactive-shells) ;; if you want interactive shell support
-(venv-initialize-eshell) ;; if you want eshell support
-(setq venv-location "~/.virtualenvs")
+;; (require 'virtualenvwrapper)
+;; (venv-initialize-interactive-shells) ;; if you want interactive shell support
+;; (venv-initialize-eshell) ;; if you want eshell support
+;; (setq venv-location "~/.virtualenvs")
+
+(setq cider-cljs-lein-repl
+      "(do (user/run)
+           (user/browser-repl))")
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
