@@ -4,12 +4,6 @@ build_session() {
     tmux new-session -d -s $SESSION_NAME
 }
 
-lein_window() {
-    tmux new-window -a -n leiningen
-    tmux send-keys "cd $1" C-m
-    tmux send-keys "lein repl" C-m
-}
-
 git_window() {
     tmux new-window -a -n git
     tmux send-keys "cd $1" C-m
@@ -20,7 +14,6 @@ adserver() {
     dir="${BASE_DIR}/code/workspace/adserver"
     build_session "adserver"
     tmux send-keys "cd $dir" C-m
-    #tmux send-keys "./sbt" C-m
     git_window $dir
 }
 
@@ -35,7 +28,6 @@ swanson() {
     dir="${BASE_DIR}/code/mr/swanson"
     build_session "swanson"
     tmux send-keys "cd $dir" C-m
-    tmux send-keys "lein repl" C-m
     git_window $dir
 }
 
@@ -84,17 +76,22 @@ grover() {
     dir="${BASE_DIR}/code/mr/grover"
     build_session "grover"
     tmux send-keys "cd $dir" C-m
-    tmux send-keys "lein repl" C-m
     git_window $dir
 }
 
+piney() {
+    dir="${BASE_DIR}/code/mr/piney"
+    build_session "piney"
+    tmux send-keys "cd $dir" C-m
+    git_window $dir
+}
 
 # build them
 waldorf
 dickens
 fes
 adserver
-swanson
+piney
 grover
 
 # attach
