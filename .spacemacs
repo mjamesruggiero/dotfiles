@@ -174,21 +174,51 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
   (setq truncate-lines t)
-  (global-linum-mode))
+  (global-linum-mode)
+
+  (global-set-key (kbd "C-c t") 'timestamp)
+
+  (fset 'evil-visual-update-x-selection 'ignore)
+
+  (setq-default evil-escape-key-sequence "jk")
+
+  ;; org-mode stuff
+  ;; mostly copied from http://bit.ly/2bkYZlq
+  (global-set-key (kbd "C-c o")
+                  (lambda () (interactive) (find-file "~/org/organizer.org")))
+
+  (setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+
+  (setq org-agenda-files '("~/org"))
+
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+  (setq org-default-notes-file "~/org/organizer.org")
+
+  ;; Capture templates for: TODO tasks, Notes, etc.
+  ;; cribbed from http://doc.norang.ca/org-mode.html#CaptureTemplates
+  (setq org-capture-templates
+      (quote (("t" "todo" entry (file "~/org/todo.org")
+               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("n" "note" entry (file "~/organizer.org")
+               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("j" "journal" entry (file+datetree "~/org/journal.org")
+               "* %?\n%U\n" :clock-in t :clock-resume t)
+              ("m" "meeting" entry (file "~/org/organizer.org")
+               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+              ("p" "call" entry (file "~/org/organizer.org")
+               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t))))
+
+  ;; end user-config
+  )
 
 (defun timestamp()
   (interactive)
   (insert "-------------------------\n")
   (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
-
-(global-set-key (kbd "C-c t") 'timestamp)
-
-(fset 'evil-visual-update-x-selection 'ignore)
-
-(setq-default evil-escape-key-sequence "jk")
 
 ;; (require 'virtualenvwrapper)
 ;; (venv-initialize-interactive-shells) ;; if you want interactive shell support
