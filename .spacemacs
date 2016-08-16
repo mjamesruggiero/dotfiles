@@ -24,7 +24,7 @@
      markdown
      common-lisp
      clojure
-     scala
+     ;;scala
      ruby
      ruby-on-rails
      go
@@ -219,6 +219,9 @@ before layers configuration."
   (interactive)
   (insert "-------------------------\n")
   (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
+
+(eval-after-load "org"
+  '(require 'ox-md nil t))
 
 ;; (require 'virtualenvwrapper)
 ;; (venv-initialize-interactive-shells) ;; if you want interactive shell support
