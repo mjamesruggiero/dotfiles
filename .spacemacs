@@ -24,7 +24,7 @@
      markdown
      common-lisp
      clojure
-     ;;scala
+     scala
      ruby
      ruby-on-rails
      go
@@ -40,6 +40,7 @@
      syntax-checking
      spell-checking
      version-control
+     racket
      (ruby :variables ruby-version-manager 'rvm))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
