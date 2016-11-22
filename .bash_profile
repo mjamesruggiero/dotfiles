@@ -67,3 +67,8 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 # add my ~/bin to PATH
 export PATH="$HOME/bin:$PATH"
+
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/opt/amazon/redshift/lib/universal
+# export ODBCINI=/etc/odbc.ini
+export AMAZONREDSHIFTODBCINI=$HOME/.amazon.redshiftodbc.ini
+# export ODBCSYSINI=/usr/local/odbc
