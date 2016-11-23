@@ -46,7 +46,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(pivotal-tracker)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -233,5 +233,15 @@ before layers configuration."
       "(do (user/run)
            (user/browser-repl))")
 
+(defun read-pivotal-config ()
+  "Read config file, grab the Pivotal API key
+and assign to Emacs var"
+  (with-temp-buffer
+    (insert-file-contents "~/.pivotal.cfg")
+    (if (string-match "pivotal: \\(.+\\)" (buffer-string))
+        (setq pivotal-api-token (match-string 1 (buffer-string)))
+      (message "could not locate pivotal-api-token"))))
+
+(read-pivotal-config)
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
