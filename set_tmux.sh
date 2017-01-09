@@ -38,38 +38,11 @@ waldorf() {
     git_window $dir
 }
 
-bakery() {
-    dir="${BASE_DIR}/code/workspace/bakery"
-    build_session "bakery"
-    tmux send-keys "cd $dir" C-m
-    git_window $dir
-}
-
 dickens() {
     dir="${BASE_DIR}/code/mr/dickens"
     build_session "dickens"
     tmux send-keys "cd $dir" C-m
     git_window $dir
-}
-
-datascience() {
-    dir="${BASE_DIR}/code/mr/tripp"
-    build_session "datascience"
-    tmux send-keys "cd $dir" C-m
-    git_window $dir
-}
-
-notes() {
-    dir="${BASE_DIR}/Dropbox/job/str/notes"
-    notes_file="${dir}/notes.txt"
-    build_session "notes"
-    tmux send-keys "cd $dir" C-m
-}
-
-millard() {
-    dir="${BASE_DIR}/code/mr/millard"
-    build_session "millard"
-    tmux send-keys "cd $dir" C-m
 }
 
 grover() {
