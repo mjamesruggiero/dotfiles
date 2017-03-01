@@ -12,7 +12,7 @@ alias treedir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-
 alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
 alias ctags="/usr/local/bin/ctags -R --exclude=spec/support --exclude=logs/* --exclude=tmp --exclude=vendor/jarhead"
 alias whatsmyip='curl -s checkip.dyndns.org|sed -e "s/.*Current IP Address: //" -e "s/<.*$//"'
-alias flushcache='dscacheutil -flushcache'
+alias flushcache='dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias ws='cd ~/code/workspace'
 alias sandbox='cd ~/code/sandbox'
 alias drop='cd ~/Dropbox'
