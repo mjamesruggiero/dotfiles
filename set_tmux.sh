@@ -24,9 +24,9 @@ fes() {
     git_window $dir
 }
 
-swanson() {
-    dir="${BASE_DIR}/code/mr/swanson"
-    build_session "swanson"
+marissa() {
+    dir="${BASE_DIR}/code/mr/marissa"
+    build_session "marissa"
     tmux send-keys "cd $dir" C-m
     git_window $dir
 }
@@ -59,13 +59,13 @@ piney() {
     git_window $dir
 }
 
-# build them
 waldorf
 dickens
 fes
 adserver
 piney
 grover
+marissa
 
 # attach
 tmux attach-session -t dickens
