@@ -27,6 +27,7 @@ alias notes='vim ~/Dropbox/job/notes.txt'
 alias strnotes='vim ~/Dropbox/job/str/notes/notes.txt'
 alias emacs="/usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs -nw"
 alias flushredis='redis-cli -r 1 flushall'
+alias maxit='emacsclient -n'
 
 # git
 alias gpthis='git push -u origin HEAD:$(git_current_branch)'
