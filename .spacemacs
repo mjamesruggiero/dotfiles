@@ -178,7 +178,6 @@ before layers configuration."
 
 (defun dotspacemacs/user-config ()
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
-  (setq truncate-lines f)
   (global-linum-mode)
 
   (global-set-key (kbd "C-c t") 'timestamp)
@@ -214,12 +213,12 @@ before layers configuration."
               ("p" "call" entry (file "~/org/organizer.org")
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t))))
 
+  ;; multiple cursors
+  (require 'multiple-cursors)
+  (global-set-key (kbd "C-c 9") 'mc/edit-lines)
+
   ;; end user-config
   )
-
-;; multiple cursors
-(require 'multiple-cursors)
-(global-set-key (kbd "C-c 9") 'mc/edit-lines)
 
 (defun timestamp()
   (interactive)
