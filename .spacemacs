@@ -17,30 +17,32 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     ;; auto-completion
      ;; better-defaults
+     clojure
+     common-lisp
+     dash
      emacs-lisp
      git
+     go
+     html
+     javascript
      markdown
-     common-lisp
-     clojure
-     scala
+     org
+     python
+     racket
      ruby
      ruby-on-rails
-     go
+     scala
+     spell-checking
      sql
+     syntax-checking
+     themes-megapack
+     version-control
      yaml
-     python
-     org
-     javascript
-     dash
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     syntax-checking
-     spell-checking
-     version-control
-     racket
      (ruby :variables ruby-version-manager 'rvm))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -251,7 +253,7 @@ before layers configuration."
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
