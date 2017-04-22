@@ -72,3 +72,12 @@ export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/opt/amazon/redshift/lib/universal
 # export ODBCINI=/etc/odbc.ini
 export AMAZONREDSHIFTODBCINI=$HOME/.amazon.redshiftodbc.ini
 # export ODBCSYSINI=/usr/local/odbc
+
+##
+# Your previous /Users/michaelruggiero/.bash_profile file was backed up as /Users/michaelruggiero/.bash_profile.macports-saved_2017-04-06_at_17:07:19
+##
+
+# MacPorts Installer addition on 2017-04-06_at_17:07:19: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
