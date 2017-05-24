@@ -10,6 +10,12 @@ git_window() {
     tmux send-keys "git status" C-m
 }
 
+irc_window() {
+    tmux new-window -a -n irc
+    tmux send-keys "cd $1" C-m
+    tmux send-keys "irssi" C-m
+}
+
 adserver() {
     dir="${BASE_DIR}/code/workspace/adserver"
     build_session "adserver"
@@ -24,11 +30,12 @@ fes() {
     git_window $dir
 }
 
-marissa() {
-    dir="${BASE_DIR}/code/mr/marissa"
-    build_session "marissa"
+sandy() {
+    dir="${BASE_DIR}/code/mr/sandy"
+    build_session "sandy"
     tmux send-keys "cd $dir" C-m
     git_window $dir
+    irc_window $dir
 }
 
 waldorf() {
@@ -64,8 +71,8 @@ dickens
 fes
 adserver
 piney
-grover
-marissa
+# grover
+sandy
 
 # attach
-tmux attach-session -t dickens
+tmux attach-session -t sandy
