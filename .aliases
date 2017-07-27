@@ -22,6 +22,7 @@ alias dickens='cd ~/code/mr/dickens'
 alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
 alias unixliner='vim -R ~/Dropbox/unix/unix_oneliners.txt'
 alias tmuxcheat='open ~/Dropbox/tmux-cheatsheet.markdown'
+alias filetypes='find . -type f -name'
 
 alias notes='vim ~/Dropbox/job/notes.txt'
 alias strnotes='vim ~/Dropbox/job/str/notes/notes.txt'
@@ -81,3 +82,5 @@ alias shipscala='gpr && ./sbt test && gpthis'
 alias dki='docker run -t -i -P'
 alias dkd='docker run -d -P'
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+alias start_sandy='docker start 650feb0b1830f52e120d'
+alias sandy_postgres='docker exec -it 650feb0b1830   su -s /bin/sh - postgres -c "sh -c psql"'
