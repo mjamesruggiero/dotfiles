@@ -82,7 +82,6 @@ nelly
 sla
 dickens
 veronica
-# tripp
 waldorf
 scratch
 
