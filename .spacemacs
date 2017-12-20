@@ -12,6 +12,8 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
+     php
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -34,7 +36,7 @@
      racket
      ruby
      ruby-on-rails
-     scala
+     ;; scala
      spell-checking
      sql
      syntax-checking
@@ -83,8 +85,8 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(jbeans
-                         sanityinc-tomorrow-night
                          ir-black
+                         sanityinc-tomorrow-night
                          niflheim
                          dakrone
                          darkburn
@@ -100,8 +102,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+   dotspacemacs-default-font '("Menlo"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -175,12 +177,15 @@ before layers configuration."
    ;; specified with an installed package.
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
+
+   ;; line numbers
+   dotspacemacs-line-numbers t
    )
   ;; User initialization goes here
   )
 
 (defun dotspacemacs/user-config ()
-  (setq inferior-lisp-program "/usr/local/bin/sbcl")
+  ;; (setq inferior-lisp-program "/usr/local/bin/sbcl")
   (global-linum-mode)
 
   (global-set-key (kbd "C-c t") 'timestamp)
@@ -191,16 +196,16 @@ before layers configuration."
 
   ;; org-mode stuff
   ;; mostly copied from http://bit.ly/2bkYZlq
-  (global-set-key (kbd "C-c o")
-                  (lambda () (interactive) (find-file "~/org/organizer.org")))
+  ;; (global-set-key (kbd "C-c o")
+  ;;                 (lambda () (interactive) (find-file "~/org/organizer.org")))
 
-  (setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+  ;; (setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
 
-  (setq org-agenda-files '("~/org"))
+  ;; (setq org-agenda-files '("~/org"))
 
   (global-set-key (kbd "C-c c") 'org-capture)
 
-  (setq org-default-notes-file "~/org/organizer.org")
+  ;; (setq org-default-notes-file "~/org/organizer.org")
 
   ;; Capture templates for: TODO tasks, Notes, etc.
   ;; cribbed from http://doc.norang.ca/org-mode.html#CaptureTemplates
@@ -217,10 +222,13 @@ before layers configuration."
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t))))
 
   ;; multiple cursors
-  (require 'multiple-cursors)
-  (global-set-key (kbd "C-c 9") 'mc/edit-lines)
+  ;; (require 'multiple-cursors)
+  ;; (global-set-key (kbd "C-c 9") 'mc/edit-lines)
 
-  (add-to-list 'yas-snippet-dirs "~/yasnippet-snippets")
+  ;; yasnippet
+  (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+  (require 'yasnippet)
+  (yas-global-mode 1)
 
   ;; end user-config
   )
@@ -230,23 +238,23 @@ before layers configuration."
   (insert "-------------------------\n")
   (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
 
-(eval-after-load "org"
-  '(require 'ox-md nil t))
+;; (eval-after-load "org"
+;;   '(require 'ox-md nil t))
 
 ;; (require 'virtualenvwrapper)
 ;; (venv-initialize-interactive-shells) ;; if you want interactive shell support
 ;; (venv-initialize-eshell) ;; if you want eshell support
 ;; (setq venv-location "~/.virtualenvs")
 
-(setq cider-cljs-lein-repl
-      "(do (user/run)
-           (user/browser-repl))")
+;; (setq cider-cljs-lein-repl
+;;       "(do (user/run)
+;;            (user/browser-repl))")
 
-(add-hook 'go-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'gofmt-before-save)
-            (setq tab-width 4)
-            (setq indent-tabs-mode 1)))
+;; (add-hook 'go-mode-hook
+;;           (lambda ()
+;;             (add-hook 'before-save-hook 'gofmt-before-save)
+;;             (setq tab-width 4)
+;;             (setq indent-tabs-mode 1)))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
@@ -256,13 +264,17 @@ before layers configuration."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#c5c8c6" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#b294bb" "#8abeb7" "#373b41"))
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
  '(custom-safe-themes
    (quote
     ("f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" "75d422d50e883b5d7a667d5b72444516b48a5d5aa1fd0904f447ff3fa1a0aa69" "ce557950466bf42096853c6dac6875b9ae9c782b8665f62478980cc5e3b6028d" "3ff96689086ebc06f5f813a804f7114195b7c703ed2f19b51e10026723711e33" "2bed8550c6f0a5ce635373176d5f0e079fb4fb5919005bfa743c71b5eed29d81" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
- '(fci-rule-color "#373b41")
+ '(fci-rule-color "#373b41" t)
+ '(package-selected-packages
+   (quote
+    (phpunit phpcbf php-auto-yasnippets drupal-mode php-mode zonokai-theme zenburn-theme zen-and-art-theme yaml-mode web-beautify underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme sql-indent spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slime-company slime seti-theme rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme rbenv railscasts-theme racket-mode faceup purple-haze-theme projectile-rails rake professional-theme planet-theme pivotal-tracker phoenix-dark-pink-theme phoenix-dark-mono-theme orgit organic-green-theme org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noflet noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow madhat2r-theme lush-theme livid-mode skewer-mode simple-httpd light-soap-theme json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc jazz-theme ir-black-theme inkpot-theme htmlize heroku-theme hemisu-theme helm-gitignore helm-dash helm-company helm-c-yasnippet hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme go-guru go-eldoc gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md gandalf-theme fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme feature-mode farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme ensime sbt-mode scala-mode dracula-theme django-theme diff-hl dash-at-point darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web web-completion-data company-tern dash-functional tern company-statistics company-go go-mode company-anaconda company common-lisp-snippets color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider seq queue clojure-mode chruby cherry-blossom-theme busybee-theme bundler inf-ruby bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete jbeans-theme yapfify ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode info+ indent-guide hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump define-word cython-mode csv-mode column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile anaconda-mode aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -290,5 +302,4 @@ before layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(default ((t (:family "Menlo" :foundry "nil" :slant normal :weight normal :height 140 :width normal)))))
