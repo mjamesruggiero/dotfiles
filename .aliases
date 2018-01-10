@@ -26,7 +26,7 @@ alias filetypes='find . -type f -name'
 
 alias notes='vim ~/Dropbox/job/notes.txt'
 alias strnotes='vim ~/Dropbox/job/str/notes/notes.txt'
-alias emacs="/usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs -nw"
+alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
 alias flushredis='redis-cli -r 1 flushall'
 alias maxit='emacsclient -n'
 
@@ -63,6 +63,7 @@ alias ackpy='ag -G py$'
 alias pyclean='find . -type f -name "*.pyc" -ls -delete'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 alias thatpythonserver='python -m SimpleHTTPServer 8083'
+alias jangtest='python manage.py test'
 
 # ruby
 alias rake='bundle exec rake'
