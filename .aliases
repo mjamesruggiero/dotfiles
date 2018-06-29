@@ -9,9 +9,7 @@ alias sma="source ~/.aliases"
 alias treedir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
 
 # misc
-alias alamedaweather='curl http://weather.yahooapis.com/forecastrss?p=94501 | grep --after-context 4 "Current"'
-alias ctags="/usr/local/bin/ctags -R --exclude=spec/support --exclude=logs/* --exclude=tmp --exclude=vendor/jarhead"
-alias whatsmyip='curl -s checkip.dyndns.org|sed -e "s/.*Current IP Address: //" -e "s/<.*$//"'
+alias whatsmyip='curl -G http://whatismyip.akamai.com'
 alias flushcache='dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias ws='cd ~/code/workspace'
 alias sandbox='cd ~/code/sandbox'
@@ -19,6 +17,7 @@ alias drop='cd ~/Dropbox'
 alias dtop='cd ~/Desktop'
 alias mr='cd ~/code/mr'
 alias dickens='cd ~/code/mr/dickens'
+alias ethel='cd ~/code/workspace/ethel'
 alias justdirs='for i in $(ls -d */); do echo ${i%%/}; done'
 alias unixliner='vim -R ~/Dropbox/unix/unix_oneliners.txt'
 alias tmuxcheat='open ~/Dropbox/tmux-cheatsheet.markdown'
@@ -85,3 +84,5 @@ alias dkd='docker run -d -P'
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias start_sandy='docker start 650feb0b1830f52e120d'
 alias sandy_postgres='docker exec -it 650feb0b1830   su -s /bin/sh - postgres -c "sh -c psql"'
+
+alias mtr='/usr/local/Cellar/mtr/0.92/sbin/mtr'
